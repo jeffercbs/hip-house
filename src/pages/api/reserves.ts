@@ -1,11 +1,10 @@
-import type { APIRoute } from "astro";
+import { createReserve, findAllReserves, findReserve } from "@/db/reserve";
 import { reserveSchema } from "@/schemas/reserve";
-import { createReserve, reserveFound } from "@/db/client";
-import { v4 as uuid } from "uuid";
+import { sendEmail } from "@/utils/send_email";
+import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
-import { Resend } from "resend";
+import { v4 as uuid } from "uuid";
 
-const resend = new Resend(import.meta.env.RESEND_SECRET);
 
 export const POST: APIRoute = async ({ request }) => {
     const formdata = await request.formData();
@@ -21,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (parsed.success) {
         try {
             const data = parsed.data;
-            const found = await reserveFound(data.visitor_dni);
+            const found = await findReserve(data.visitor_dni);
 
             if (found.length > 0) {
                 return new Response(JSON.stringify({ error: "La reserva ya existe" }), {
@@ -35,26 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
             });
 
 
-            await resend.emails.send({
-                from: "onboarding@resend.dev",
-                to: data.visitor_email,
-                subject: "Reserva exitosa",
-                html: `
-                        <h1>¡Hola ${data.visitor_name}!</h1>
-                        <p>Gracias por reservar en HipHouse</p>
-
-                        <hr/>
-                        <p>Detalles de la reserva:</p>
-                        <p>Fecha: ${data.reserve_date}</p>
-                        <p>Hora: ${data.reserve_time}</p>
-                        <p>Telefono: ${data.visitor_phone}</p>
-                        <p>Correo: ${data.visitor_email}</p>
-
-                        <hr/>
-                        <h1>¡Su reserva fue exitosa!</h1>
-                        <p>Gracias por reservar en HipHouse</p>
-                    `,
-            });
+            await sendEmail(data)
 
             return new Response(
                 JSON.stringify({ message: "¡Su reserva fue exitosa!" })
@@ -78,3 +58,22 @@ export const POST: APIRoute = async ({ request }) => {
         }
     );
 };
+
+
+export const GET: APIRoute = async ({ request }) => {
+    const session = await getSession(request);
+
+    if (!session) {
+        return new Response(JSON.stringify({ error: "Primero Inicie sesión" }), {
+            status: 401,
+        });
+    }
+
+    const reserves = await findAllReserves();
+
+    return new Response(JSON.stringify(reserves), {
+        headers: {
+            "content-type": "application/json",
+        },
+    });
+}

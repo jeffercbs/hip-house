@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GoogleSignIn from "../../components/GoogleSignin.astro";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
+
+if (session) return Astro.redirect("/dashboard");
+---
+
+<Layout title="SignIn" robots="noindex, nofollow" googlebot="noindex, nofollow">
+  <main class="hero">
+    <div class="min-h-dvh grid place-content-center text-center">
+      <h1 class="text-3xl font-bold">SignIn</h1>
+      <GoogleSignIn />
+    </div>
+  </main>
+</Layout>

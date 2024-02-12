@@ -1,2 +1,4 @@
 User-agent: *
-Sitemap: https://..../sitemap-index.xml
+Sitemap: https://hip-house.vercel.app/sitemap-index.xml
+
+Disallow: /dashboard

@@ -2,9 +2,15 @@
 import site from "@/data/meta-site.json";
 export type Props = {
   title: string;
+  robots?: string;
+  googlebot?: string;
 };
 
-const { title } = Astro.props;
+const {
+  title,
+  robots = "index, follow",
+  googlebot = "index, follow",
+} = Astro.props;
 const template = `${site.TITLE_SEO} | ${title}`;
 ---
 
@@ -23,8 +29,8 @@ const template = `${site.TITLE_SEO} | ${title}`;
 <link rel="sitemap" href="/sitemap-index.xml" />
 <meta name="keywords" content={site.KEYWORD_SEO} />
 
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
+<meta name="robots" content={robots} />
+<meta name="googlebot" content={googlebot} />
 
 <link
   rel="preload"

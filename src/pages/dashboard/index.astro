@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+import { findUser } from "../../db/user";
+
+const session = await getSession(Astro.request);
+
+if (session) {
+  const user = await findUser(session.user.email);
+
+  if (!user || user[0].user_role !== "admin") {
+    return Astro.redirect("/");
+  }
+} else {
+  return Astro.redirect("/dashboard/signin");
+}
+---
+
+<Layout
+  title="Dashboard"
+  robots="noindex, nofollow"
+  googlebot="noindex, nofollow"
+>
+  <main class="hero">
+    <h1>dashboard</h1>
+  </main>
+</Layout>
