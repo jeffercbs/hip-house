@@ -25,6 +25,12 @@ interface Props {
     <slot />
     <Footer />
     <style is:global>
+      @font-face {
+        font-family: "PoetsenOne";
+        src:
+          url("/fonts/PoetsenOne.woff2") format("woff2"),
+          url("/fonts/PoetsenOne.woff") format("woff");
+      }
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -38,11 +44,6 @@ interface Props {
         border-radius: 5px;
         @apply bg-orange-950;
       }
-
-      @font-face {
-        font-family: PoetsenOne;
-        src: url("/fonts/PoetsenOne.ttf");
-      }
       *,
       body,
       html {
@@ -55,7 +56,7 @@ interface Props {
         @apply bg-orange-50 text-black;
       }
       .hero {
-        @apply lg:max-w-5xl w-full mx-auto md:px-0 px-2;
+        @apply lg:max-w-5xl w-full mx-auto md:px-0 px-6;
       }
     </style>
   </body>

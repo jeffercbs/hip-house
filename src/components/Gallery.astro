@@ -5,7 +5,7 @@ import SectionContainer from "./SectionContainer.astro";
 ---
 
 <SectionContainer id="gallery" title="Explorar nuestras images" tag="galeria">
-  <masonry-layout id="gallery" gap="10" class="lg:mx-auto mx-4">
+  <masonry-layout id="gallery" gap="10" class="lg:mx-auto">
     {
       gallery.map(({ src, alt, width, height }) => (
         <a

@@ -25,7 +25,6 @@
     >
       Alice Donovan Rouse
     </a>
-    on unsplash
   </p>
 
   <img
@@ -33,14 +32,15 @@
     alt="logo"
     width="120"
     height="120"
-    class="absolute right-6 bottom-6 z-20"
+    class="absolute right-6 bottom-6 z-20 md:w-40 w-24"
   />
 </section>
 
 <style>
   .intro {
-    @apply h-dvh bg-[url('/cover.webp')] bg-cover bg-center bg-no-repeat relative;
-    @apply after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/50 after:opacity-90;
+    @apply h-dvh relative after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/50 after:opacity-90;
+    background: #ff6c3aff url("/cover.webp") no-repeat center;
+    background-size: cover;
   }
   .intro-title {
     @apply text-7xl text-center md:text-9xl flex flex-col;

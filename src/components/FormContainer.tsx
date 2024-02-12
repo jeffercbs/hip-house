@@ -33,7 +33,7 @@ export function FormContainer(props: any) {
   return (
     <form
       onSubmit={submit}
-      class="py-12 md:px-8 px-4 border-2 border-orange-950 shadow-2xl shadow-orange-600/40 rounded-lg"
+      class="py-12 md:px-8 px-6 border-2 border-orange-950 shadow-2xl shadow-orange-600/40 rounded-lg"
     >
       {props.children}
       <button
@@ -44,7 +44,7 @@ export function FormContainer(props: any) {
         Rervar ahora mismo
       </button>
 
-      <div class="py-2">
+      <div class="mt-3">
         {errorMessage && (
           <p class="text-red-100 bg-red-600 roudned-lg p-3">{errorMessage}</p>
         )}
