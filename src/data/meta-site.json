@@ -1,0 +1,43 @@
+{
+  "TITLE_SEO": "Arte - cultura - estilo",
+  "DESCRIPTION_SEO": "Arte - cultura - estilo",
+  "KEYWORD_SEO": "Arte,cultura,estilo",
+
+  "HEADER_LINKS": [
+    {
+      "NAME": "Inicio",
+      "LABEL": "inicio",
+      "URL": "#"
+    },
+    {
+      "NAME": "Galería",
+      "LABEL": "gallery",
+      "URL": "#gallery"
+    },
+    {
+      "NAME": "Sobre Nosotros",
+      "LABEL": "about",
+      "URL": "#about"
+    },
+    {
+      "NAME": "Reserva",
+      "LABEL": "reserves",
+      "URL": "#reserves"
+    }
+  ],
+
+  "SOCIAL": [
+    {
+      "NAME": "Facebook",
+      "URL": "#"
+    },
+    {
+      "NAME": "Instagram",
+      "URL": "#"
+    },
+    {
+      "NAME": "Twitter",
+      "URL": "#"
+    }
+  ]
+}

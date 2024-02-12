@@ -1,0 +1,64 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer
+  class="grid md:grid-cols-4 grid-cols-1 gap-4 md:*:min-h-[300px] text-orange-950"
+  style="border: 2px solid  rgb(67, 20, 7, 0.8);"
+  id="about"
+>
+  <div class="absolute inset-0 -z-10 h-full w-full bg-orange-100">
+    <div
+      class="absolute md:flex hidden inset-0 bg-[radial-gradient(circle_400px_at_50%_350px,#FF6C3Aff,transparent)]"
+    >
+    </div>
+  </div>
+  <div class="content text-left">
+    <p>
+      En Hip House, nos dedicamos a proporcionar un espacio innovador y
+      profesional donde artistas musicales y bailarines urbanos puedan canalizar
+      su creatividad y pasión.
+    </p>
+    <p>
+      Nuestra misión es ofrecer servicios de grabación musical y video de
+      primera categoría, junto con salas de ensayo equipadas con tecnología de
+      última generación. Nos esforzamos por ser un pilar en el desarrollo
+      artístico de nuestros clientes, ofreciéndoles un entorno inspirador y las
+      herramientas necesarias para alcanzar sus metas.
+    </p>
+  </div>
+
+  <div class="py-12 px-8 grid place-content-center text-center col-span-2">
+    <h2
+      style="font-family: PoetsenOne;"
+      class="md:text-8xl text-7xl flex flex-col mx-auto text-pretty"
+    >
+      <span> Misión</span>
+      <span class="text-4xl">y</span>
+      <span>Visión</span>
+    </h2>
+  </div>
+
+  <div class="content">
+    <p>
+      En Hip House, nuestra visión es destacarnos como líderes en la industria
+      de la música y el baile, siendo reconocidos por nuestra excelencia en
+      calidad, innovación y profesionalismo. Nos esforzamos por ser el destino
+      preferido de músicos y bailarines que buscan un espacio que satisfaga sus
+      necesidades creativas y técnicas.
+    </p>
+    <p>
+      ser conocidos por nuestro talento y experiencia, así como por nuestra
+      capacidad para producir obras musicales y visuales impactantes. Además,
+      aspiramos a ser un catalizador de la creatividad y un centro de reunión
+      para la comunidad artística, promoviendo colaboraciones y proyectos que
+      impulsen el desarrollo del talento en ambos campos.
+    </p>
+  </div>
+</SectionContainer>
+
+<style>
+  .content {
+    @apply flex flex-col md:text-justify text-center [&>p]:text-balance [&>p]:font-medium [&>p]:text-base [&>p]:py-2;
+  }
+</style>

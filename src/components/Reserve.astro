@@ -1,0 +1,52 @@
+---
+import { getSession } from "auth-astro/server";
+import Form from "./Form.astro";
+import GoogleSignin from "./GoogleSignin.astro";
+import List from "./List.astro";
+import User from "./User.astro";
+import SectionContainer from "./SectionContainer.astro";
+
+const session = await getSession(Astro.request);
+---
+
+<SectionContainer title="Has tu reservación hoy mismo" id="reserves">
+  <div class="flex md:flex-row flex-col gap-x-8">
+    <div class="md:w-2/5 flex flex-col justify-center w-full">
+      <h3 class="font-mono md:text-4xl text-2xl pb-8">
+        Indicaciones para hacer tus reservas
+      </h3>
+      {
+        session ? (
+          <>
+            <List
+              items={[
+                "Llena el formulario con tus datos para hacer tu reserva.",
+                "Los siguientes datos se usarán para confirmar tu reservación.",
+              ]}
+            />
+            <User {...session} />
+          </>
+        ) : (
+          <>
+            <List
+              items={[
+                "Inicia sesión con tu cuenta de Google para hacer tu reserva.",
+                "Necesitamos que inicies sesión para validar que eres una persona real.",
+              ]}
+            />
+            <GoogleSignin />
+          </>
+        )
+      }
+      <List
+        items={[
+          "Días de atención: Martes a sábado. Horario de 9:00 a 18:00 horas.",
+          "Para reservar, elige una fecha y hora dentro de nuestro horario y completa el formulario en nuestro sitio web o llama a nuestro número de contacto.",
+        ]}
+      />
+    </div>
+    <div class="flex-1 py-4 md:mt-0 mt-8">
+      <Form />
+    </div>
+  </div>
+</SectionContainer>

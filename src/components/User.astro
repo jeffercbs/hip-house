@@ -1,0 +1,52 @@
+---
+const { props } = Astro;
+---
+
+<div
+  class="flex border-2 relative border-orange-900 rounded-lg py-3 px-5 mt-3 mb-6 shadow-lg"
+>
+  <div class="w-1/4">
+    <img
+      src={props.user.image}
+      width="60"
+      height="60"
+      alt={props.user.name}
+      class="rounded-full"
+    />
+  </div>
+  <div class="flex-1 flex flex-col justify-center">
+    <h2 class="text-lg font-semibold leading-5">{props.user.name}</h2>
+    <p class="opacity-70">{props.user.email}</p>
+  </div>
+  <button
+    class="absolute md:-right-4 -right-2 -top-5 rounded-full p-3 shadow-2xl bg-white text-red-700"
+    id="signout"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-log-out"
+      ><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"> </path>
+      <polyline points="16 17 21 12 16 7"> </polyline>
+      <line x1="21" x2="9" y1="12" y2="12"> </line>
+    </svg>
+  </button>
+</div>
+
+<script>
+  import { signOut } from "auth-astro/client";
+  const signout = document.getElementById("signout");
+
+  if (signout) {
+    signout.addEventListener("click", () => {
+      signOut();
+    });
+  }
+</script>

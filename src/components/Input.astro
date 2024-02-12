@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { getSession } from "auth-astro/server";
+
+export type Props = HTMLAttributes<"input"> & {
+  label: string;
+};
+
+const { name, label, class: classes, ...resProps } = Astro.props;
+const session = await getSession(Astro.request);
+---
+
+<label class:list={["my-2 w-full flex flex-col", classes]} for={name}>
+  <span class="text-sm font-semibold opacity-80 pb-1">
+    {label}
+  </span>
+  <input
+    {...resProps}
+    {name}
+    id={name}
+    readonly={session ? false : true}
+    class:list={[
+      "outline-none bg-neutral-950 text-black border-none rounded-lg placeholder:opacity-60 read-only:ring-orange-900/30 b ring-orange-900/30 bg-transparent px-4 py-2 ring-2 ",
+      { "focus:ring-orange-500": session },
+    ]}
+  />
+</label>

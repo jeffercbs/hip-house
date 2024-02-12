@@ -1,0 +1,27 @@
+---
+import site from "@/data/meta-site.json";
+export type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+const template = `${site.TITLE_SEO} | ${title}`;
+---
+
+<meta charset="UTF-8" />
+<title>{template}</title>
+<meta name="description" content={site.DESCRIPTION_SEO} />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/logo.png" />
+<meta property="og:title" content={template} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content="website" />
+<meta property="og:description" content={site.DESCRIPTION_SEO} />
+<meta property="canonical" content={new URL(Astro.url.pathname, Astro.site)} />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="keywords" content={site.KEYWORD_SEO} />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />

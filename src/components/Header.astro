@@ -1,0 +1,72 @@
+---
+import site from "@/data/meta-site.json";
+---
+
+<header
+  class="z-50 w-full md:h-12 h-16 pt-2 fixed animate-fade-down text-white"
+>
+  <nav class="header-nav">
+    <ul class="flex flex-wrap justify-center items-center gap-x-6 w-fit">
+      {
+        site.HEADER_LINKS.map(({ NAME, URL, LABEL }) => (
+          <li
+            class="hover:opacity-100 transition-opacity ease-in-out font-semibold opacity-70"
+            id="nav-item"
+          >
+            <a
+              href={URL}
+              aria-label={LABEL}
+              set:text={NAME}
+              class="transition-colors ease-in-out"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("#nav-item a");
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-orange-200", "opacity-100");
+            } else {
+              item.classList.remove("text-orange-200", "opacity-100");
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      }
+    };
+  });
+</script>
+
+<style>
+  .header-nav {
+    @apply w-fit z-50 px-6 mx-auto rounded-full flex justify-center backdrop-blur-md items-center h-full;
+    @apply saturate-150 bg-black/80 border border-white/40 contrast-125;
+  }
+</style>

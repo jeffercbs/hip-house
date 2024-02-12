@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"section"> & {
+  title?: string;
+  tag?: string;
+};
+
+const { class: classes, title, tag, ...resProps } = Astro.props;
+---
+
+<section class="min-h-dvh h-fit py-12 relative z-10" {...resProps}>
+  <div class:list={["hero size-full", classes]}>
+    {
+      title && (
+        <div class="pb-12 my-8 text-center">
+          {tag && (
+            <span class="inline-flex text-primary underline decoration-wavy text-xl font-black uppercase">
+              {tag}
+            </span>
+          )}
+          <h2 class="section_title">{title}</h2>
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section_title {
+    font-family: PoetsenOne;
+    @apply md:text-6xl text-4xl  md:max-w-3xl mx-auto font-semibold leading-10;
+  }
+</style>

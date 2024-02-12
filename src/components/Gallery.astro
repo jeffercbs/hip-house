@@ -1,0 +1,45 @@
+---
+import gallery from "@/data/meta-gallery.json";
+import "photoswipe/style.css";
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer id="gallery" title="Explorar nuestras images" tag="galeria">
+  <masonry-layout id="gallery" gap="10" class="lg:mx-auto mx-4">
+    {
+      gallery.map(({ src, alt, width, height }) => (
+        <a
+          href={src}
+          target="_blank"
+          data-cropped="true"
+          data-pswp-width={width}
+          data-pswp-height={height}
+        >
+          <img
+            src={src}
+            alt={alt}
+            class="size-full object-cover rounded-lg border-2 border-orange-950"
+            decoding="async"
+            loading="lazy"
+          />
+        </a>
+      ))
+    }
+  </masonry-layout>
+</SectionContainer>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "@appnest/masonry-layout";
+  import PhotoSwipe from "photoswipe";
+
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery",
+      children: "a",
+      pswpModule: PhotoSwipe,
+    });
+
+    lightbox.init();
+  });
+</script>
