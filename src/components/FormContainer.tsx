@@ -33,13 +33,13 @@ export function FormContainer(props: any) {
   return (
     <form
       onSubmit={submit}
-      class="py-12 md:px-8 px-6 border-2 border-orange-950 shadow-2xl shadow-orange-600/40 rounded-lg"
+      class="py-12 md:px-8 px-6 border-2 border-orange-950 shadow-2xl shadow-orange-800/40 rounded-lg"
     >
       {props.children}
       <button
         type="submit"
         disabled={disabled}
-        class="w-full disabled:opacity-40 border-2 border-primary bg-orange-200 text-primary hover:bg-primary hover:text-orange-100 py-3 px-2 rounded-lg hover:shadow-2xl hover:shadow-orange-500/30"
+        class="w-full transition-colors ease-in-out disabled:opacity-40 border-2 border-primary bg-orange-200 text-primary hover:bg-primary hover:text-orange-100 py-3 px-2 rounded-lg hover:shadow-2xl hover:shadow-orange-500/30"
       >
         Rervar ahora mismo
       </button>

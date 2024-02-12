@@ -14,6 +14,8 @@ import SectionContainer from "./SectionContainer.astro";
           data-cropped="true"
           data-pswp-width={width}
           data-pswp-height={height}
+          aria-label={`Ver imagen de ${alt} en tamaño completo`}
+          role="presentation"
         >
           <img
             src={src}
