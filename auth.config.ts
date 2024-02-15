@@ -14,22 +14,28 @@ export default defineConfig({
     ],
     callbacks: {
         async session({ session }) {
+            const user = await findUser(session?.user?.email || "")
+
+            session.user.role = user.user_role?.toString() as any
+            session.user.id = user.user_id?.toString() as any
+
             return session
         },
 
         async signIn({ profile }) {
             try {
-                const user = await findUser(profile?.email || "")
+                let user = await findUser(profile?.email || "")
 
-                if (user.length === 0) {
-                    const newUser = userShema.parse({
+                if (!user) {
+                    const new_user = userShema.parse({
                         user_id: uuid(),
-                        user_role: "client",
-                        user_name: profile?.given_name,
-                        user_email: profile?.email,
+                        user_email: profile?.email || "",
+                        user_name: profile?.name || "",
+                        user_picture: profile?.picture || "",
                     })
 
-                    await createUser(newUser)
+                    await createUser(new_user)
+                    return true
                 }
                 return true
             } catch (error) {
@@ -38,3 +44,16 @@ export default defineConfig({
         }
     }
 });
+
+
+declare module "@auth/core/types" {
+    interface Session {
+        user: {
+            name?: string
+            email?: string
+            image?: string
+            role?: string
+            id?: string
+        }
+    }
+}
