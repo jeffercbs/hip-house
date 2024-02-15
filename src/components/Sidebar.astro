@@ -1,0 +1,45 @@
+---
+import site from "@/data/meta-site.json";
+import SignOut from "./SignOut.astro";
+---
+
+<aside class="sidebar" aria-label="Sidebar">
+  <div class="flex flex-col gap-y-3 h-full px-3 py-4 bg-gray-50">
+    <a href="/dashboard" class="flex items-center ps-2.5 mb-5">
+      <img src="/logo.png" class="h-6 me-3 sm:h-7" alt="Hip House Logo" />
+      <span class="self-center text-xl font-semibold whitespace-nowrap">
+        Hip House
+      </span>
+    </a>
+
+    <ul class="space-y-1 font-medium">
+      {
+        site.DASHBOARD.map(({ LABEL, URL, ICON }) => (
+          <li>
+            <a
+              href={URL}
+              class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+            >
+              <span set:html={ICON} />
+              <span class="ms-3" set:text={LABEL} />
+            </a>
+          </li>
+        ))
+      }
+
+      <li>
+        <SignOut
+          class="flex w-full items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 gap-x-3"
+          notStyle
+        />
+      </li>
+    </ul>
+  </div>
+
+  <style>
+    .sidebar {
+      @apply sticky inset-y-0 left-0 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0;
+      @apply border-r border-stone-300 md:flex hidden;
+    }
+  </style>
+</aside>

@@ -1,0 +1,30 @@
+---
+import site from "../data/meta-site.json";
+import SignOut from "./SignOut.astro";
+---
+
+<nav
+  id="mobile-menu"
+  class="bg-white z-10 -translate-y-full transition-transform md:hidden w-full text-center grid fixed top-0 inset-x-0 h-dvh place-content-center"
+>
+  <ul class="flex flex-col gap-y-6 *:font-semibold">
+    {
+      site.DASHBOARD.map(({ URL, LABEL }) => (
+        <li class="opacity-70 hover:opacity-100 transition-opacity ease-in-out">
+          <a
+            href={URL}
+            class="text-3xl hover:underline transition-all ease-in-out duration-300"
+          >
+            {LABEL}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <SignOut
+        class="flex gap-x-3 w-full my-2 justify-center border-2 border-red-800 px-4 py-3"
+        notStyle
+      />
+    </li>
+  </ul>
+</nav>
