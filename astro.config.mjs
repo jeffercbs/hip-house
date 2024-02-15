@@ -2,15 +2,16 @@ import { defineConfig } from "astro/config";
 // integrations
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import preact from "@astrojs/preact";
 import auth from "auth-astro";
 // adapter
 import vercel from "@astrojs/vercel/serverless";
 
+import svelte from "@astrojs/svelte";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://paula.vercel.app",
-  integrations: [sitemap(), tailwind(), preact(), auth()],
+  site: "https://hip-house.vercel.app",
+  integrations: [sitemap(), tailwind(), auth(), svelte()],
   output: "server",
   adapter: vercel(),
 });
