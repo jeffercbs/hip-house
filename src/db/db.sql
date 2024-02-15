@@ -13,6 +13,7 @@ CREATE TABLE users
 (
     user_id       VARCHAR(36) PRIMARY KEY,
     user_name    VARCHAR(225) NOT NULL,
-    user_email VARCHAR(100) NOT NULL,
+    user_picture VARCHAR(225) NOT NULL,
+    user_email VARCHAR(100) NOT NULL UNIQUE,
     user_role    VARCHAR(20)  NOT NULL
 )

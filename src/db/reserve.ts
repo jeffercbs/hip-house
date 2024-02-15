@@ -1,12 +1,14 @@
-import { db } from "./client"
+import { db } from "./client";
 import { reserveSchema } from "@/schemas/reserve";
-import { z } from "zod";
+import { z } from "astro:content";
 
-export function findAllReserves() {
-    return db.execute({
+export async function findAllReserves(): Promise<any[]> {
+    const res = await db.execute({
         sql: `SELECT * FROM reserves`,
-        args: []
+        args: [],
     });
+
+    return res.rows;
 }
 
 export async function findReserve(dni: number) {
@@ -20,19 +22,41 @@ export async function findReserve(dni: number) {
 
 export async function createReserve(data: z.infer<typeof reserveSchema>) {
     const {
-        reserve_id = "",
+        reserve_id,
         reserve_date,
         reserve_time,
+        reserve_status,
         visitor_dni,
         visitor_email,
         visitor_name,
         visitor_phone,
     } = data;
 
-    const Insert = {
-        sql: `INSERT INTO reserves (reserve_id, visitor_name, visitor_dni, visitor_email, visitor_phone, reserve_date, reserve_time) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        args: [reserve_id, visitor_name, visitor_dni, visitor_email, visitor_phone, reserve_date, reserve_time]
-    }
+    await db
+        .execute({
+            sql: `INSERT INTO reserves (reserve_id, reserve_time, reserve_status, visitor_name, visitor_dni, visitor_email, visitor_phone, reserve_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            args: [
+                reserve_id,
+                reserve_time,
+                reserve_status,
+                visitor_name,
+                visitor_dni,
+                visitor_email,
+                visitor_phone,
+                reserve_date,
+            ],
+        })
+        .then((res) => {
+            return res.rows;
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+}
 
-    return await db.execute(Insert);
+export async function deleteReserve(id: string) {
+    await db.execute({
+        sql: `DELETE FROM reserves WHERE reserve_id = ?`,
+        args: [id],
+    });
 }
