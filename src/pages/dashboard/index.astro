@@ -1,14 +1,15 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
-import { findUser } from "../../db/user";
+import Layout from "../../layouts/Layout.astro";
+import TableReserves from "@/components/TableReserves.svelte";
+import Banner from "@/components/Banner.astro";
+import Sidebar from "@/components/Sidebar.astro";
+import Header from "@/components/DashboardHeader.astro";
 
 const session = await getSession(Astro.request);
 
 if (session) {
-  const user = await findUser(session.user.email);
-
-  if (!user || user[0].user_role !== "admin") {
+  if (session.user.role !== "admin") {
     return Astro.redirect("/");
   }
 } else {
@@ -21,7 +22,20 @@ if (session) {
   robots="noindex, nofollow"
   googlebot="noindex, nofollow"
 >
-  <main class="hero">
-    <h1>dashboard</h1>
+  <main class="w-full flex-1">
+    <div class="flex md:flex-row flex-col-reverse">
+      <Sidebar />
+      <div class="flex-1 w-full px-4">
+        <Header />
+        <Banner />
+        <TableReserves client:load />
+      </div>
+    </div>
   </main>
 </Layout>
+
+<style>
+  body {
+    @apply bg-gray-50;
+  }
+</style>

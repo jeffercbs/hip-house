@@ -4,13 +4,17 @@ import Gallery from "@/components/Gallery.astro";
 import Intro from "../components/Intro.astro";
 import Reserve from "../components/Reserve.astro";
 import Layout from "../layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="relative">
+  <Header />
+  <main class="relative bg-orange-50 text-black">
     <Intro />
     <Gallery />
     <AboutMe />
     <Reserve />
   </main>
+  <Footer />
 </Layout>

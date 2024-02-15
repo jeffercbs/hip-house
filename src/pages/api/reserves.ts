@@ -1,15 +1,13 @@
-import { createReserve, findAllReserves, findReserve } from "@/db/reserve";
+import { createReserve, findAllReserves, findReserve, deleteReserve } from "@/db/reserve";
 import { reserveSchema } from "@/schemas/reserve";
-import { sendEmail } from "@/utils/send_email";
 import type { APIRoute } from "astro";
 import { getSession } from "auth-astro/server";
-import { v4 as uuid } from "uuid";
-
 
 export const POST: APIRoute = async ({ request }) => {
+    const session = await getSession(request);
+
     const formdata = await request.formData();
     const parsed = reserveSchema.safeParse(Object.fromEntries(formdata));
-    const session = await getSession(request);
 
     if (!session) {
         return new Response(JSON.stringify({ error: "Primero Inicie sesión" }), {
@@ -28,13 +26,8 @@ export const POST: APIRoute = async ({ request }) => {
                 });
             }
 
-            await createReserve({
-                reserve_id: uuid(),
-                ...data,
-            });
-
-
-            await sendEmail(data)
+            await createReserve(data);
+            // await sendEmail(data)
 
             return new Response(
                 JSON.stringify({ message: "¡Su reserva fue exitosa!" })
@@ -59,8 +52,39 @@ export const POST: APIRoute = async ({ request }) => {
     );
 };
 
-
 export const GET: APIRoute = async ({ request }) => {
+    const session = await getSession(request);
+
+    if (!session) {
+        return new Response(JSON.stringify({ error: "Primero Inicie sesión" }), {
+            headers: {
+                "Content-Type": "text/event-stream",
+            },
+            status: 401,
+        });
+    }
+
+    try {
+        if (session.user.role === "admin") {
+            const reserves = await findAllReserves();
+
+            return new Response(JSON.stringify(reserves));
+        }
+
+        return new Response(JSON.stringify({ error: "No tienes permisos" }), {
+            status: 401,
+        });
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ error: "¡Error interno del servidor!" }),
+            {
+                status: 500,
+            }
+        );
+    }
+};
+
+export const DELETE: APIRoute = async ({ request }) => {
     const session = await getSession(request);
 
     if (!session) {
@@ -69,11 +93,31 @@ export const GET: APIRoute = async ({ request }) => {
         });
     }
 
-    const reserves = await findAllReserves();
+    try {
+        if (session.user.role === "admin") {
+            const url = new URL(request.url);
+            const id = url.searchParams.get("id");
 
-    return new Response(JSON.stringify(reserves), {
-        headers: {
-            "content-type": "application/json",
-        },
-    });
-}
+            if (!id) {
+                return new Response(JSON.stringify({ error: "¡ID no encontrado!" }), {
+                    status: 400,
+                });
+            }
+
+            await deleteReserve(id);
+
+            return new Response(JSON.stringify({ message: "¡Reserva eliminada!" }));
+        }
+
+        return new Response(JSON.stringify({ error: "No tienes permisos" }), {
+            status: 401,
+        });
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ error: "¡Error interno del servidor!" }),
+            {
+                status: 500,
+            }
+        );
+    }
+};

@@ -9,9 +9,31 @@ if (session) return Astro.redirect("/dashboard");
 ---
 
 <Layout title="SignIn" robots="noindex, nofollow" googlebot="noindex, nofollow">
-  <main class="hero">
-    <div class="min-h-dvh grid place-content-center text-center">
-      <h1 class="text-3xl font-bold">SignIn</h1>
+  <div
+    class="absolute blur-xl z-[1] inset-0 size-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"
+  >
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_600px_at_50%_200px,#FF6C3Aff,transparent)]"
+    >
+    </div>
+  </div>
+  <header class="w-full py-2 absolute inset-x-0 top-0 h-16 z-20">
+    <nav class="hero flex items-center md:justify-start justify-center">
+      <div class="flex justify-between items-center px-5">
+        <a href="/" class="text-xl font-bold flex items-center gap-4">
+          <img src="/logo.png" width="60" height="60" alt="" />
+          Hip House
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main class="hero min-h-dvh grid place-content-center relative z-10">
+    <div class="md:max-w-md px-5 py-12 text-center">
+      <h1 class="text-5xl font-black pb-4">Iniciar Sesión</h1>
+      <p class="pb-6 text-lg">
+        Si eres un administrador inicia sesión con tu cuenta de Google para
+        acceder a tu panel de control.
+      </p>
       <GoogleSignIn />
     </div>
   </main>
