@@ -1,19 +1,21 @@
 ---
-import { getSession } from "auth-astro/server";
-import Layout from "@/layouts/Layout.astro";
-import TableReserves from "@/components/TableReserves.svelte";
-import Banner from "@/components/Banner.astro";
-import Sidebar from "@/components/Sidebar.astro";
-import Header from "@/components/DashboardHeader.astro";
+import { getSession } from 'auth-astro/server';
+import Layout from '@/layouts/Layout.astro';
+import Table from '@/components/Table.astro';
+import Banner from '@/components/Banner.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Header from '@/components/DashboardHeader.astro';
+import Form from '@/components/Form.svelte';
+import Input from '@/components/Input.astro';
 
 const session = await getSession(Astro.request);
 
 if (session) {
-  if (session.user.role !== "admin") {
-    return Astro.redirect("/");
+  if (session.user.role !== 'admin') {
+    return Astro.redirect('/');
   }
 } else {
-  return Astro.redirect("/dashboard/signin");
+  return Astro.redirect('/dashboard/signin');
 }
 ---
 
@@ -27,8 +29,59 @@ if (session) {
       <Sidebar />
       <div class="flex-1 w-full px-4">
         <Header />
-        <Banner />
-        <TableReserves client:load />
+        <div class="flex lg:flex-row flex-col">
+          <div class="flex-1">
+            <Banner />
+            <Table />
+          </div>
+          <aside class="w-full px-2 lg:w-2/6 h-dvh lg:sticky inset-y-0 right-0">
+            <Form session={session} classes="mt-4" client:load>
+              <Input
+                type="text"
+                name="visitor_name"
+                placeholder="pedro sanchez"
+                required
+                label="Responsable"
+              />
+              <Input
+                type="number"
+                name="visitor_dni"
+                placeholder="111111111"
+                required
+                label="Documento de identidad"
+              />
+              <Input
+                type="email"
+                name="visitor_email"
+                placeholder="hola@gmail.com"
+                required
+                label="Email"
+              />
+              <Input
+                type="text"
+                name="visitor_phone"
+                placeholder="+5733232323"
+                required
+                label="Teléfono"
+              />
+              <Input
+                type="date"
+                min="01/01/2024"
+                name="reserve_date"
+                required
+                label="Fecha"
+              />
+              <Input
+                type="time"
+                name="reserve_time"
+                min="09:00"
+                max="18:00"
+                required
+                label="Hora"
+              />
+            </Form>
+          </aside>
+        </div>
       </div>
     </div>
   </main>
