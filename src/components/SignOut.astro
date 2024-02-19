@@ -11,13 +11,13 @@ const { class: classes, notStyle = false, isIcon = false } = Astro.props;
 <button
   class:list={[
     {
-      "rounded-full p-2 shadow-2xl border-2 border-orange-900 bg-white text-red-70":
+      'rounded-full p-2 shadow-2xl border-2 border-orange-900 bg-white text-red-70':
         !notStyle,
     },
     classes,
   ]}
   id="signout"
-  type="button"
+  type="submit"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -35,15 +35,15 @@ const { class: classes, notStyle = false, isIcon = false } = Astro.props;
     <line x1="21" x2="9" y1="12" y2="12"> </line>
   </svg>
 
-  {!isIcon && <span>Cerrar sesión</span>}
+  <slot />
 </button>
 
 <script>
-  import { signOut } from "auth-astro/client";
-  const signout = document.getElementById("signout");
+  import { signOut } from 'auth-astro/client';
+  const signout = document.getElementById('signout');
 
   if (signout) {
-    signout.addEventListener("click", () => {
+    signout.addEventListener('click', () => {
       signOut();
     });
   }

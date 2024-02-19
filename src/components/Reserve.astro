@@ -1,18 +1,20 @@
 ---
-import { getSession } from "auth-astro/server";
-import Form from "./Form.svelte";
-import GoogleSignin from "./GoogleSignin.astro";
-import Input from "./Input.astro";
-import List from "./List.astro";
-import SectionContainer from "./SectionContainer.astro";
-import User from "./User.astro";
+import { getSession } from 'auth-astro/server';
+import Form from './Form.svelte';
+import GoogleSignin from './GoogleSignin.astro';
+import Input from './Input.astro';
+import List from './List.astro';
+import SectionContainer from './SectionContainer.astro';
+import User from './User.astro';
 
 const session = await getSession(Astro.request);
 ---
 
 <SectionContainer title="Has tu reservación hoy mismo" id="reserves">
-  <div class="flex md:flex-row flex-col gap-x-8">
-    <div class="md:w-2/5 flex flex-col justify-center w-full">
+  <div
+    class="flex lg:flex-row flex-col gap-x-8 lg:max-w-none max-w-2xl mx-auto"
+  >
+    <div class="lg:w-2/5 flex flex-col justify-center w-full">
       <h3 class="font-mono md:text-4xl text-2xl pb-8">
         Indicaciones para hacer tus reservas
       </h3>
@@ -21,8 +23,8 @@ const session = await getSession(Astro.request);
           <>
             <List
               items={[
-                "Llena el formulario con tus datos para hacer tu reserva.",
-                "Los siguientes datos se usarán para confirmar tu reservación.",
+                'Llena el formulario con tus datos para hacer tu reserva.',
+                'Los siguientes datos se usarán para confirmar tu reservación.',
               ]}
             />
             <User {...session} />
@@ -31,8 +33,8 @@ const session = await getSession(Astro.request);
           <>
             <List
               items={[
-                "Inicia sesión con tu cuenta de Google para hacer tu reserva.",
-                "Necesitamos que inicies sesión para validar que eres una persona real.",
+                'Inicia sesión con tu cuenta de Google para hacer tu reserva.',
+                'Necesitamos que inicies sesión para validar que eres una persona real.',
               ]}
             />
             <GoogleSignin />
@@ -41,18 +43,22 @@ const session = await getSession(Astro.request);
       }
       <List
         items={[
-          "Días de atención: Martes a sábado. Horario de 9:00 a 18:00 horas.",
-          "Para reservar, elige una fecha y hora dentro de nuestro horario y completa el formulario en nuestro sitio web o contactenos por medio de nuestras redes sociales.",
+          'Días de atención: Martes a sábado. Horario de 9:00 a 18:00 horas.',
+          'Para reservar, elige una fecha y hora dentro de nuestro horario y completa el formulario en nuestro sitio web o contactenos por medio de nuestras redes sociales.',
         ]}
       />
     </div>
     <div class="flex-1 py-4 md:mt-0 mt-8">
-      <Form session={session} client:load>
+      <Form
+        session={session}
+        classes="border-orange-950 shadow-2xl shadow-orange-800/40"
+        client:load
+      >
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-6">
           <Input
             type="text"
             name="visitor_name"
-            value={session?.user?.name || ""}
+            value={session?.user?.name || ''}
             placeholder="pedro sanchez"
             required
             label="Responsable"
@@ -68,7 +74,7 @@ const session = await getSession(Astro.request);
           />
           <Input
             type="email"
-            value={session?.user?.email || ""}
+            value={session?.user?.email || ''}
             name="visitor_email"
             placeholder="hola@gmail.com"
             required

@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
+  import { writable } from 'svelte/store';
 
   export let session: any = null;
+  export let classes: string = '';
 
   let errorMessage: string | null = null;
   let successMessage: string | null = null;
@@ -10,15 +11,17 @@
   async function submit(event: SubmitEvent) {
     event.preventDefault();
 
-    const formData = new FormData(event.target as HTMLFormElement);
-    const response = await fetch("/api/reserves", {
-      method: "POST",
-      body: formData,
+    const data = new FormData(event.currentTarget as HTMLFormElement);
+    const res = await fetch(`/api/reserves`, {
+      method: 'POST',
+      body: data,
     });
 
-    const data = await response.json();
-
-    response.ok ? (successMessage = data.message) : (errorMessage = data.error);
+    if (res.ok) {
+      successMessage = 'Reserva realizada con éxito';
+    } else {
+      errorMessage = 'al realizar la reserva';
+    }
   }
 
   $: session !== null && disabled.set(false);
@@ -27,12 +30,14 @@
       setTimeout(() => {
         successMessage = null;
         errorMessage = null;
-      }, 3000);
+
+        window.location.reload();
+      }, 1000);
     }
   }
 </script>
 
-<form on:submit={submit} class="form md:px-8 px-6">
+<form on:submit={submit} class={`form md:px-8 px-6 ${classes}`}>
   <slot />
   <button
     type="submit"
@@ -64,10 +69,10 @@
 
 <style>
   .form {
-    @apply py-12 border-2 border-orange-950 shadow-2xl shadow-orange-800/40 rounded-lg;
+    @apply py-12 border-2 rounded-lg;
   }
   .btn-submit {
-    @apply w-full py-3 rounded-lg transition-colors ease-in-out border-2 border-primary bg-orange-200 text-primary;
+    @apply w-full py-3 rounded-lg transition-colors ease-in-out border-2 border-primary bg-orange-200 text-primary mt-4;
   }
   .disabled:disabled {
     @apply opacity-50;
