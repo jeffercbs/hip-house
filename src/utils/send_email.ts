@@ -1,13 +1,13 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(import.meta.env.RESEND_SECRET);
 
 export const sendEmail = async (data: any) => {
-    await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: data.visitor_email,
-        subject: "Reserva exitosa",
-        html: `
+  await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: data.visitor_email,
+    subject: 'Reserva exitosa',
+    html: `
                 <!DOCTYPE html>
                     <html lang="es">
                     <head>
@@ -37,11 +37,7 @@ export const sendEmail = async (data: any) => {
 
                             <ul style="margin-top: 1rem">
                                 <li>
-                                <strong>Fecha</strong>: ${new Date(data.reserve_date).toLocaleDateString()}
-                            </li>
-
-                            <li>
-                                <strong>Hora</strong>: ${data.reserve_time}
+                                <strong>Fecha</strong>: ${data.reserve_date}
                             </li>
 
                             <li>
@@ -56,5 +52,5 @@ export const sendEmail = async (data: any) => {
                     </body>
                     </html>
                 `,
-    });
+  });
 };

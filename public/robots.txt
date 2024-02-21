@@ -2,3 +2,4 @@ User-agent: *
 Sitemap: https://hip-house.vercel.app/sitemap-index.xml
 
 Disallow: /dashboard
+Disallow: /dashboard/signin

@@ -1,10 +1,7 @@
-import {
-  createReserve,
-  findAllReserves,
-  findReserve,
-  deleteReserve,
-} from '@/db/reserve';
+import { createReserve, deleteReserve, findReserve } from '@/db/reserve';
 import { reserveSchema } from '@/schemas/reserve';
+import { sendEmail } from '@/utils/send_email';
+import { format } from '@formkit/tempo';
 import type { APIRoute } from 'astro';
 import { getSession } from 'auth-astro/server';
 import { v4 as uuid } from 'uuid';
@@ -23,11 +20,11 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (parsed.success) {
     try {
-      const data = parsed.data;
-      const found = await findReserve(data.visitor_dni);
+      const { reserve_date, reserve_time, ...resData } = parsed.data;
+      const found = await findReserve(resData.visitor_dni);
 
       if (found.length > 0) {
-        if (found[0].visitor_email === data.visitor_email) {
+        if (found[0].visitor_email === resData.visitor_email) {
           return new Response(
             JSON.stringify({ error: 'La reserva ya existe' }),
             {
@@ -37,15 +34,23 @@ export const POST: APIRoute = async ({ request }) => {
         }
       }
 
-      const res = await createReserve({
-        ...data,
+      const date = {
+        ...resData,
+        reserve_date: format(`${reserve_date}T${reserve_time}`, {
+          date: 'medium',
+          time: 'short',
+        }),
         reserve_id: uuid(),
-      });
+      };
 
-      // await sendEmail(data)
+      await createReserve(date);
+      await sendEmail(date);
 
       return new Response(
-        JSON.stringify({ message: '¡Su reserva fue exitosa!' })
+        JSON.stringify({
+          message:
+            '"¡Su reserva se ha completado con éxito! En breve, recibirá un correo electrónico con la confirmación de su reserva. ¡Muchas Gracias!"',
+        })
       );
     } catch (error) {
       return new Response(
