@@ -17,10 +17,11 @@
       body: data,
     });
 
+    const json = await res.json();
     if (res.ok) {
-      successMessage = 'Reserva realizada con éxito';
+      successMessage = json.message;
     } else {
-      errorMessage = 'al realizar la reserva';
+      errorMessage = json.error;
     }
   }
 

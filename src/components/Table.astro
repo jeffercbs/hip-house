@@ -1,73 +1,18 @@
 ---
+import type { z } from 'astro:content';
 import { findAllReserves } from '../db/reserve';
 import { reserveSchema } from '../schemas/reserve';
 import Trash from './Trash.svelte';
-import type { z } from 'astro:content';
 
 const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
 ---
-
-<script define:vars={{ reserves }} type="module">
-  import { findAllReserves } from '../db/reserve';
-
-  console.log('observer');
-  document.addEventListener('astro:page-load', () => {
-    const lastRow = document.querySelector('tbody tr:last-child');
-    let offset = 0;
-
-    if (reserves.length == 10) {
-      const observer = new IntersectionObserver(async (entries) => {
-        if (entries[0].isIntersecting) {
-          offset += 1;
-          console.log('load more reserves');
-          const reserves = await findAllReserves(offset);
-          loadNewReserves(reserves);
-        }
-      });
-
-      observer.observe(lastRow);
-    }
-
-    function loadNewReserves(reserves) {
-      const tr = document.getElementById('reserve').cloneNode(true);
-      reserves.forEach((reserve) => {
-        const clone = tr.cloneNode(true);
-        clone.querySelector('#time').textContent = reserve.reserve_date;
-        clone.querySelector('#visitor').textContent = reserve.visitor_name;
-        clone.querySelector('#email').textContent = reserve.visitor_email;
-        clone.querySelector('#status').textContent = reserve.reserve_status;
-        clone
-          .querySelector('#status')
-          .classList.remove(
-            'bg-green-100',
-            'text-green-800',
-            'bg-red-100',
-            'text-red-800'
-          );
-        clone
-          .querySelector('#status')
-          .classList.add(
-            reserve.reserve_status == 'ACTIVE'
-              ? 'bg-green-100 text-green-800'
-              : 'bg-red-100 text-red-800'
-          );
-        clone
-          .querySelector('button')
-          .setAttribute('data-reserve', reserve.reserve_id.toString());
-        document.querySelector('tbody').appendChild(clone);
-      });
-    }
-
-    observer.observe(lastRow);
-  });
-</script>
 
 <div class="relative overflow-x-auto">
   <table class="w-full text-sm text-left rtl:text-right text-gray-500">
     <thead class="table-head">
       <tr>
-        <th scope="col" class="px-6 py-3"> fecha</th>
-        <th scope="col" class="px-6 py-3"> cliente</th>
+        <th scope="col" class="px-6 py-3"> reserva</th>
+        <th scope="col" class="px-6 py-3"> contacto</th>
         <th scope="col" class="px-6 py-3"> estado</th>
         <th scope="col" class="px-6 py-3"> acciones</th>
       </tr>
@@ -81,7 +26,6 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
               ({
                 reserve_id,
                 reserve_date,
-                reserve_time,
                 visitor_dni,
                 visitor_name,
                 visitor_email,
@@ -90,17 +34,16 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                 <tr class="border-b hover:bg-white/20" id="reserve">
                   <td class="px-2 py-4">
                     <span class="flex flex-col">
-                      <time datetime={reserve_date} id="date">
-                        FECHA: <strong>{reserve_date}</strong>
-                      </time>
-                      <span>
-                        HORA: <strong id="time">{reserve_time}</strong>
-                      </span>
+                      <span class="font-semibold">{visitor_name}</span>
+                      <time
+                        datetime={reserve_date}
+                        set:text={reserve_date}
+                        id="date"
+                      />
                     </span>
                   </td>
 
                   <th scope="row" class="flex flex-col px-6 py-4 font-normal">
-                    <strong id="visitor">{visitor_name}</strong>
                     <span class="opacity-80" id="name">
                       {visitor_email}
                     </span>

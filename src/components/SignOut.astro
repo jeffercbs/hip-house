@@ -2,10 +2,9 @@
 export type Props = {
   class?: string;
   notStyle?: boolean;
-  isIcon?: boolean;
 };
 
-const { class: classes, notStyle = false, isIcon = false } = Astro.props;
+const { class: classes, notStyle = false } = Astro.props;
 ---
 
 <button
