@@ -9,29 +9,32 @@ dependencies:
     specifier: ^2.2.3
     version: 2.2.3
   '@astrojs/sitemap':
-    specifier: ^3.0.5
-    version: 3.0.5
+    specifier: ^3.1.1
+    version: 3.1.1
   '@astrojs/svelte':
     specifier: ^5.0.3
-    version: 5.0.3(astro@4.4.0)(svelte@4.2.11)(typescript@5.3.3)(vite@5.1.3)
+    version: 5.0.3(astro@4.4.2)(svelte@4.2.11)(typescript@5.3.3)(vite@5.1.3)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.4.0)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.4.2)(tailwindcss@3.4.1)
   '@astrojs/vercel':
     specifier: ^7.3.1
-    version: 7.3.1(astro@4.4.0)
+    version: 7.3.1(astro@4.4.2)
   '@auth/core':
     specifier: ^0.18.6
     version: 0.18.6
+  '@formkit/tempo':
+    specifier: ^0.0.10
+    version: 0.0.10
   '@libsql/client':
-    specifier: ^0.5.0
-    version: 0.5.0
+    specifier: ^0.5.1
+    version: 0.5.1
   astro:
-    specifier: ^4.4.0
-    version: 4.4.0(typescript@5.3.3)
+    specifier: ^4.4.2
+    version: 4.4.2(typescript@5.3.3)
   auth-astro:
     specifier: ^4.1.1
-    version: 4.1.1(@auth/core@0.18.6)(astro@4.4.0)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 4.1.1(@auth/core@0.18.6)(astro@4.4.2)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
   photoswipe:
     specifier: ^5.4.3
     version: 5.4.3
@@ -47,8 +50,8 @@ dependencies:
 
 devDependencies:
   '@astrojs/check':
-    specifier: ^0.5.4
-    version: 0.5.4(typescript@5.3.3)
+    specifier: ^0.5.5
+    version: 0.5.5(typescript@5.3.3)
   '@fontsource/poppins':
     specifier: ^5.0.8
     version: 5.0.8
@@ -83,13 +86,13 @@ packages:
     resolution: {integrity: sha512-q4q48iygVyaFaaogu5xeYNHR5jj4yZMB4zC1JmfOggz7DPCp/QIJGbnLctf3y2maNtGz4PiLXrQRQlmx5hO57A==}
     dev: false
 
-  /@astrojs/check@0.5.4(typescript@5.3.3):
-    resolution: {integrity: sha512-BFClaLEuRzpfF9wrmh9KDS5gmRHGhkVN7qvm6tWPBvUxOADXiNz+hzrYFvZVqXTXhHjS0Ern1g3yHifgu0zsmw==}
+  /@astrojs/check@0.5.5(typescript@5.3.3):
+    resolution: {integrity: sha512-05LjyUB14Cv2mkLNqY4r2igI2eu0bq/HcKCfFNIoBPLyNW7VUDr9tciD9VJXXT3s0e6JHneIs6bQW5ipjmaRcw==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
-      '@astrojs/language-server': 2.7.4(typescript@5.3.3)
+      '@astrojs/language-server': 2.7.5(typescript@5.3.3)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
@@ -107,8 +110,8 @@ packages:
     resolution: {integrity: sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A==}
     dev: false
 
-  /@astrojs/language-server@2.7.4(typescript@5.3.3):
-    resolution: {integrity: sha512-U317ZKx5VXg2Sy6iPgYOliOZ10Ji/eo8MGFCry2/yT+rYTfb81HbrSWUu9nsZzpFK66So5aprQutRWWM/m7mPQ==}
+  /@astrojs/language-server@2.7.5(typescript@5.3.3):
+    resolution: {integrity: sha512-iMfZ3UaqTgIL+z/eUDOppRa1bGUAteWRihbWq5mGAgvr/hu384ZXUKJcqV3BBux0MBsRXwjxzrC2dJu9IpAaoA==}
     hasBin: true
     peerDependencies:
       prettier: ^3.0.0
@@ -127,12 +130,12 @@ packages:
       '@volar/language-service': 2.0.4
       '@volar/typescript': 2.0.4
       fast-glob: 3.3.2
-      volar-service-css: 0.0.29(@volar/language-service@2.0.4)
-      volar-service-emmet: 0.0.29(@volar/language-service@2.0.4)
-      volar-service-html: 0.0.29(@volar/language-service@2.0.4)
-      volar-service-prettier: 0.0.29(@volar/language-service@2.0.4)
-      volar-service-typescript: 0.0.29(@volar/language-service@2.0.4)(@volar/typescript@2.0.4)
-      volar-service-typescript-twoslash-queries: 0.0.29(@volar/language-service@2.0.4)
+      volar-service-css: 0.0.30(@volar/language-service@2.0.4)
+      volar-service-emmet: 0.0.30(@volar/language-service@2.0.4)
+      volar-service-html: 0.0.30(@volar/language-service@2.0.4)
+      volar-service-prettier: 0.0.30(@volar/language-service@2.0.4)
+      volar-service-typescript: 0.0.30(@volar/language-service@2.0.4)(@volar/typescript@2.0.4)
+      volar-service-typescript-twoslash-queries: 0.0.30(@volar/language-service@2.0.4)
       vscode-html-languageservice: 5.1.2
       vscode-uri: 3.0.8
     transitivePeerDependencies:
@@ -167,14 +170,14 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/sitemap@3.0.5:
-    resolution: {integrity: sha512-60eLzNjMza3ABypiQPUC6ElOSZNZeY5CwSwgJ03hfeonl+Db9x12CCzBFdTw7A5Mq+O54xEZVUrR0tB+yWgX8w==}
+  /@astrojs/sitemap@3.1.1:
+    resolution: {integrity: sha512-qPgdBIcDUaea98mTtLfi5z9oXZpzSjEn/kes70/Ex8FOZZ+DIHVKRYOLOtvy8p+FTXr/9oc7BjmIbTYmYLLJVg==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.22.4
     dev: false
 
-  /@astrojs/svelte@5.0.3(astro@4.4.0)(svelte@4.2.11)(typescript@5.3.3)(vite@5.1.3):
+  /@astrojs/svelte@5.0.3(astro@4.4.2)(svelte@4.2.11)(typescript@5.3.3)(vite@5.1.3):
     resolution: {integrity: sha512-6TUBRUxmsEczKPBT6oDUAfvzuFCmITuhZfKPT5ZtOOyj9XOVnEnj/Iobd3ajKUbpWNYX7qZVAd1KMkmJc1Nhsg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -182,7 +185,7 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.1
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.0.2(svelte@4.2.11)(vite@5.1.3)
-      astro: 4.4.0(typescript@5.3.3)
+      astro: 4.4.2(typescript@5.3.3)
       svelte: 4.2.11
       svelte2tsx: 0.6.27(svelte@4.2.11)(typescript@5.3.3)
     transitivePeerDependencies:
@@ -191,13 +194,13 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/tailwind@5.1.0(astro@4.4.0)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.4.2)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.4.0(typescript@5.3.3)
+      astro: 4.4.2(typescript@5.3.3)
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -221,7 +224,7 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/vercel@7.3.1(astro@4.4.0):
+  /@astrojs/vercel@7.3.1(astro@4.4.2):
     resolution: {integrity: sha512-nzpvuRIJMbmLXd0nQpVrOGCPOEx792aAI25aFNK3uC0lD/yGyAlY4nHkCeaE/c+0vkiRdCbfGlHujz3emWpg2w==}
     peerDependencies:
       astro: ^4.2.0
@@ -229,7 +232,7 @@ packages:
       '@astrojs/internal-helpers': 0.2.1
       '@vercel/analytics': 1.1.3
       '@vercel/nft': 0.24.4
-      astro: 4.4.0(typescript@5.3.3)
+      astro: 4.4.2(typescript@5.3.3)
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -717,6 +720,10 @@ packages:
     resolution: {integrity: sha512-P8owfYWluoUY5Nyzk4gT/L6LmLmseP6ezFWhj6VBUa5pRIdnCvNJpoQ6i/vhekjtJOfqX6nKlB+LCttoUl2GQQ==}
     dev: true
 
+  /@formkit/tempo@0.0.10:
+    resolution: {integrity: sha512-eN5IBf2GAqHKjT2R5pnyRnpBi/1URWho5kjqUOBeLbXHmbYtKnKDGD1RIgXRMEMhr2HLP9HcWLkXSanIV2uyOA==}
+    dev: false
+
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -753,35 +760,35 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@libsql/client@0.5.0:
-    resolution: {integrity: sha512-fePr9UH9iifRFc3ZCjMTAzClLCJ2C3r6tXOamsliet9esuq0q2hg5/nCsjkjgLu4dAC80ufvXNvB0ccKusX1tg==}
+  /@libsql/client@0.5.1:
+    resolution: {integrity: sha512-gzdQVPVi/64BRKP6sg+JvHTht95OHNjaldjhBrfB79H8hc/djUwWYuo9+C/+zCQ73IR+js2xTtUgNzn8bLZ/7A==}
     dependencies:
-      '@libsql/core': 0.5.0
+      '@libsql/core': 0.5.1
       '@libsql/hrana-client': 0.5.6
       js-base64: 3.7.6
-      libsql: 0.3.1
+      libsql: 0.3.2
     transitivePeerDependencies:
       - bufferutil
       - encoding
       - utf-8-validate
     dev: false
 
-  /@libsql/core@0.5.0:
-    resolution: {integrity: sha512-9alQ+ihYHgOyf3oPBUEuNH/y5Y2TM2BacaXO7QHnExpQjnQwxHTjie/uHkxIZ3vTSdbzPvt2sGiyedHyDKBqhA==}
+  /@libsql/core@0.5.1:
+    resolution: {integrity: sha512-oEkns102z5bLbGSQjZGAm4Ce+TwOuA8g7a86dRkGtEhOSIErw21yL0+t1oYrPtOXluDtTQ80cTvru8EoMMr78Q==}
     dependencies:
       js-base64: 3.7.6
     dev: false
 
-  /@libsql/darwin-arm64@0.3.1:
-    resolution: {integrity: sha512-Yf8jFf6DHHTj7jtfjTTZPirYjwwqzMEUYmUlQvbEtlcRYNpj6N000atEfbvSRBOMx7stOqPQlymQZ2020xSKjw==}
+  /@libsql/darwin-arm64@0.3.2:
+    resolution: {integrity: sha512-w5CTHTM7mBovE0W3Sz/71DPF1fmfQFZtAFCHz+TI+X19PLNFsozBD73xkHdpX4fED5+NejCI58Q8sNYj6g26QQ==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@libsql/darwin-x64@0.3.1:
-    resolution: {integrity: sha512-4dciW+z1SBIfl6Oxec1t1cofaBYTP/xFcIZMJwfdaYuukwJFhKTIBjxS2ex048RGL86SpBPRR//ZDBi95kEYlA==}
+  /@libsql/darwin-x64@0.3.2:
+    resolution: {integrity: sha512-2Ts7uzeKgZ7MFMxaRFpokr8cAsut7jbi2PIWyCq/XmPpWrQUZBEnNCEwuJMVbj+yew6lf4E3PGQlRHJDLIds/A==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -820,40 +827,40 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@libsql/linux-arm64-gnu@0.3.1:
-    resolution: {integrity: sha512-7Ap1iZKSdPDWp47FnPgHDYhrwQ3lGFXRYEqMhD4YqI1BO5ywBcV564DkWVH4xIGA5fNsVDo0zaerVztWDNdJyQ==}
+  /@libsql/linux-arm64-gnu@0.3.2:
+    resolution: {integrity: sha512-dwOQSJCst7FgMAB19NY037nJUTpmREKBgk86Fx/cv0Ins9XArvlwLqtJ41gZUWsbgxSP/Zm6CPdfFtt0P5RzTA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@libsql/linux-arm64-musl@0.3.1:
-    resolution: {integrity: sha512-bUAYqeyyr34J9SlBDdletpuUDp5jQrZ4B3Maqr9Hyut0nhN+raCa5Hno73W85GaFYmXgE5rCbMHDtcs0OLGMdQ==}
+  /@libsql/linux-arm64-musl@0.3.2:
+    resolution: {integrity: sha512-OEHMfqq7+FFExtjPu1nMBN55wjPrVYdii/4n4l0Z+InHKtZciFJIVJ8sYfe64L1szZ7TrLWsi2fEmOL16ZonjQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@libsql/linux-x64-gnu@0.3.1:
-    resolution: {integrity: sha512-7A3BtwLdJHjXB8kFuAtLmND66da8RwVeIfY1rRivDEyintv/HvXFmj+coIfniuO1xKvJtfaoJ8j2Fa5lObOnDg==}
+  /@libsql/linux-x64-gnu@0.3.2:
+    resolution: {integrity: sha512-dVeM9S0x2ImtKBuOcq2K4Xqd/IyMYD5BSdwmOxOFQ3lPAkE0q4YtRhvaJ00ZWaesG5/iarZE7uJA7x2xmxEOWw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@libsql/linux-x64-musl@0.3.1:
-    resolution: {integrity: sha512-CyIhvt+t19yvT/y6wFkkFN2KA7ixmInWuHv1EP7hYXuGC7hXs1oAW8+5Sp2MGQdyVQRcenWyYp176nwjNBi12A==}
+  /@libsql/linux-x64-musl@0.3.2:
+    resolution: {integrity: sha512-XG812Z/zXqx1m+pTjVtdBah2WvsvrmGE55dO4pXuRJKyvpPb5qg8m/t3PaKhtA9KDru9laP24+xCMyUWYnqkjw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@libsql/win32-x64-msvc@0.3.1:
-    resolution: {integrity: sha512-o3pqBYP0GbnpkKOSNiRYPa5Z+L3mG5C1vIxcPEAkiXExSXfyYpKoridffyZsw47MhU4ZHLdoXFB35VLIIRmyhg==}
+  /@libsql/win32-x64-msvc@0.3.2:
+    resolution: {integrity: sha512-IMcfr1fV8o9PalLeozGF5AegZEPSriiXKT9vn5JEWk0Pc6Fm4LX3UVqwO47XTdJf/vJuizxZgxeWrlmm26shKA==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -1260,7 +1267,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.11.17
     dev: false
 
   /@types/unist@2.0.10:
@@ -1494,8 +1501,8 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: false
 
-  /astro@4.4.0(typescript@5.3.3):
-    resolution: {integrity: sha512-JAsMrm1Z6W4Iqg9Q7LW/6lCXrqa4jndEOlR/yu7NGNP0BrPwSM8i4+yzya6hxgsNvyyVK8ywthaNhFmqd8Z+cg==}
+  /astro@4.4.2(typescript@5.3.3):
+    resolution: {integrity: sha512-r1djG61ABvZ9n73vaTW6nTKnMvWY1LQhPpBtzoA2OI2RAk/ptzsqK9ozkAG1qXO2bW3NLJi6pfMxxpngNAALyQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1551,7 +1558,6 @@ packages:
       rehype: 13.0.1
       resolve: 1.22.8
       semver: 7.6.0
-      server-destroy: 1.0.1
       shikiji: 0.9.19
       shikiji-core: 0.9.19
       string-width: 7.1.0
@@ -1586,7 +1592,7 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /auth-astro@4.1.1(@auth/core@0.18.6)(astro@4.4.0)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0):
+  /auth-astro@4.1.1(@auth/core@0.18.6)(astro@4.4.2)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-7dTs8OcSYIYEmmlVw/HJ2k3otwDrD2fG2NTrKaij/VH8TfQ9EhS4VGgoQw1yArQoV0v6kvqOD4lFHFehQzKKqA==}
     engines: {node: '>=17.4'}
     peerDependencies:
@@ -1594,7 +1600,7 @@ packages:
       astro: ^4.0.0
     dependencies:
       '@auth/core': 0.18.6
-      astro: 4.4.0(typescript@5.3.3)
+      astro: 4.4.2(typescript@5.3.3)
       next-auth: 4.24.5(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
       set-cookie-parser: 2.6.0
     transitivePeerDependencies:
@@ -2870,21 +2876,21 @@ packages:
     resolution: {integrity: sha512-y+SqErxb8h7nE/fiEX07jsbuhrpO9lL8eca7/Y1nuWV2moNlXhyd59iDGcRf6moVyDMbmTNzL40SUyrFU/yDpg==}
     dev: false
 
-  /libsql@0.3.1:
-    resolution: {integrity: sha512-L8CfxSSAtdTW9xGLWbhSr7gVYH8YHrsEumvcsbehPY9G11QmRPPo6y+vBD8IkIB8Jr/07xEiLa6ytx76sCtWZQ==}
+  /libsql@0.3.2:
+    resolution: {integrity: sha512-lKJQG6VATgNVNLxxPjGkKkjKF3HnEVP5OpesCz+zaftLzZlIti8ZCRwGcwGwjr3kyV0K5U2rlw0vQpTMCew3FA==}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
     dependencies:
       '@neon-rs/load': 0.0.4
       detect-libc: 2.0.2
     optionalDependencies:
-      '@libsql/darwin-arm64': 0.3.1
-      '@libsql/darwin-x64': 0.3.1
-      '@libsql/linux-arm64-gnu': 0.3.1
-      '@libsql/linux-arm64-musl': 0.3.1
-      '@libsql/linux-x64-gnu': 0.3.1
-      '@libsql/linux-x64-musl': 0.3.1
-      '@libsql/win32-x64-msvc': 0.3.1
+      '@libsql/darwin-arm64': 0.3.2
+      '@libsql/darwin-x64': 0.3.2
+      '@libsql/linux-arm64-gnu': 0.3.2
+      '@libsql/linux-arm64-musl': 0.3.2
+      '@libsql/linux-x64-gnu': 0.3.2
+      '@libsql/linux-x64-musl': 0.3.2
+      '@libsql/win32-x64-msvc': 0.3.2
     dev: false
 
   /lilconfig@2.1.0:
@@ -4377,10 +4383,6 @@ packages:
     dependencies:
       lru-cache: 6.0.0
 
-  /server-destroy@1.0.1:
-    resolution: {integrity: sha512-rb+9B5YBIEzYcD6x2VKidaa+cqYBJQKnU4oe4E3ANwRRN56yk/ua1YCJT1n21NTS8w6CcOclAKNP3PhdCXKYtQ==}
-    dev: false
-
   /server-only@0.0.1:
     resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
     dev: false
@@ -5066,8 +5068,8 @@ packages:
       vite: 5.1.3
     dev: false
 
-  /volar-service-css@0.0.29(@volar/language-service@2.0.4):
-    resolution: {integrity: sha512-2kNdgEYEiLeeer3wkagNBVDPa3Zj7mBDeM7D3iYmBXA0LCwd2tQL3eASzcDW9Gvac1g478UtptK468GxzUAEcA==}
+  /volar-service-css@0.0.30(@volar/language-service@2.0.4):
+    resolution: {integrity: sha512-jui+1N0HBfjW43tRfhyZp0axhBee4997BRyX4os8xQm/7cjD2KjAuyz92nMIPRt1QDoG4/7uQT28xNhy0TPJTA==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
     peerDependenciesMeta:
@@ -5079,8 +5081,8 @@ packages:
       vscode-uri: 3.0.8
     dev: true
 
-  /volar-service-emmet@0.0.29(@volar/language-service@2.0.4):
-    resolution: {integrity: sha512-sXRMfQ970lpOQxUcKH9B4DqE7FCNhPy6V4m3gw+kgH17mADQ2rdL63b8osXFy5bnAMBcsXRhtJXJPmh/LgZXEw==}
+  /volar-service-emmet@0.0.30(@volar/language-service@2.0.4):
+    resolution: {integrity: sha512-HEeIrmqQ/DTfuQDI9ER5+YReXXjE9f7W6MlBmn5biUuPyizVTGfuILN8pJhmYvmPHCA7qHhU7CJqwE9DAh9AJg==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
     peerDependenciesMeta:
@@ -5089,11 +5091,11 @@ packages:
     dependencies:
       '@volar/language-service': 2.0.4
       '@vscode/emmet-helper': 2.9.2
-      volar-service-html: 0.0.29(@volar/language-service@2.0.4)
+      volar-service-html: 0.0.30(@volar/language-service@2.0.4)
     dev: true
 
-  /volar-service-html@0.0.29(@volar/language-service@2.0.4):
-    resolution: {integrity: sha512-ctTSU46KCLxcaR53mAod2wBWSEIXGdXdejqHEDPSX33H5rA2X89zyYEpuk9BOVzIHG8G8rggVXCGnGaXxmYrCw==}
+  /volar-service-html@0.0.30(@volar/language-service@2.0.4):
+    resolution: {integrity: sha512-wW3TEeRTeHv/3mC8Ik6T62SwewMWFungb8ydyEK/2GDHEntBEG/J9wtuh01/J0kYqPerhlT9zhdGB6PGYHAGuA==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
     peerDependenciesMeta:
@@ -5105,8 +5107,8 @@ packages:
       vscode-uri: 3.0.8
     dev: true
 
-  /volar-service-prettier@0.0.29(@volar/language-service@2.0.4):
-    resolution: {integrity: sha512-GxcDKfiVv3fc4XUtUOkQpX0QlFjWppRCVWIBp751gOKJwDex142xMlbTxP9la9tollbmj2O/tVUrqqLDGQ+Lsg==}
+  /volar-service-prettier@0.0.30(@volar/language-service@2.0.4):
+    resolution: {integrity: sha512-Qdc5Zc0y4hJmJbpIQ52cSDjs0uvVug/e2nuL/XZWPJM6Cr5/3RjjoRVKtDQbKItFYlGk+JH+LSXvwQeD5TXZqg==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
       prettier: ^2.2 || ^3.0
@@ -5120,8 +5122,8 @@ packages:
       vscode-uri: 3.0.8
     dev: true
 
-  /volar-service-typescript-twoslash-queries@0.0.29(@volar/language-service@2.0.4):
-    resolution: {integrity: sha512-hdI8ZO1Wc/I5+iwKKnOfXW7ktpBe0qLoXz5+8viS6aV9gycKSAKAs6sayLTATQZcZ1EAESUqTqGS/vJOUgZOsg==}
+  /volar-service-typescript-twoslash-queries@0.0.30(@volar/language-service@2.0.4):
+    resolution: {integrity: sha512-ahj6woBxhkZu7icQR58x5TnUaS8ZRKn7a+UvY+andmiTWsOaSu85zj36+LPZgZQi1MG+BtjNwUjKoxtZiN51PA==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
     peerDependenciesMeta:
@@ -5131,8 +5133,8 @@ packages:
       '@volar/language-service': 2.0.4
     dev: true
 
-  /volar-service-typescript@0.0.29(@volar/language-service@2.0.4)(@volar/typescript@2.0.4):
-    resolution: {integrity: sha512-ssBhGT0Wrh670NRTrLoikzoRbszd72jIa02IKbrfI9QIIONvygOmIJ9jSqj4jxHEWz/KSCgCEhCyR7hEH80kGg==}
+  /volar-service-typescript@0.0.30(@volar/language-service@2.0.4)(@volar/typescript@2.0.4):
+    resolution: {integrity: sha512-jA8c0Mhy9rgAsrgtwocK95Smws1M2E0MxlQ/SVo/rmOGH32cX9UGgI0IENWKa3yagp/khfoemOIQDz/KNhI3zg==}
     peerDependencies:
       '@volar/language-service': ~2.0.1
       '@volar/typescript': ~2.0.1
