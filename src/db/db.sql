@@ -1,10 +1,9 @@
 CREATE TABLE reserves (
     reserve_id VARCHAR(36) PRIMARY KEY,
-    reserve_date DATE NOT NULL,
-    reserve_time TIME NOT NULL,
+    reserve_date VARCHAR(125) NOT NULL,
     reserve_status VARCHAR(20),
     visitor_dni INTEGER(10) NOT NULL,
-    visitor_email VARCHAR(100) NOT NULL UNIQUE,
+    visitor_email VARCHAR(100) NOT NULL,
     visitor_name VARCHAR(100) NOT NULL,
     visitor_phone VARCHAR(20) NOT NULL
 );

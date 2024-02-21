@@ -1,6 +1,4 @@
 import { db } from './client';
-import { reserveSchema } from '@/schemas/reserve';
-import { z } from 'astro:content';
 
 export async function findAllReserves(offset: number): Promise<any[]> {
   const res = await db.execute({
@@ -20,11 +18,10 @@ export async function findReserve(dni: number) {
   return res.rows;
 }
 
-export async function createReserve(data: z.infer<typeof reserveSchema>) {
+export async function createReserve(data: any) {
   const {
     reserve_id,
     reserve_date,
-    reserve_time,
     reserve_status,
     visitor_dni,
     visitor_email,
@@ -34,10 +31,9 @@ export async function createReserve(data: z.infer<typeof reserveSchema>) {
 
   await db
     .execute({
-      sql: `INSERT INTO reserves (reserve_id, reserve_time, reserve_status, visitor_name, visitor_dni, visitor_email, visitor_phone, reserve_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      sql: `INSERT INTO reserves (reserve_id, reserve_status, visitor_name, visitor_dni, visitor_email, visitor_phone, reserve_date) VALUES (?, ?, ?, ?, ?, ?, ?)`,
       args: [
         reserve_id,
-        reserve_time,
         reserve_status,
         visitor_name,
         visitor_dni,
