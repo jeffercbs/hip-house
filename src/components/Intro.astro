@@ -1,4 +1,4 @@
-<section class="intro" id="inicio">
+<section class="intro h-dvh relative" id="inicio">
   <div class="hero size-full z-20 relative grid place-content-center">
     <div class="flex-1 flex flex-col justify-center md:text-left text-center">
       <h1 class="intro-title">
@@ -38,9 +38,9 @@
 
 <style>
   .intro {
-    @apply h-dvh relative after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/50 after:opacity-90;
-    background: #431407 url('/cover.webp') no-repeat center;
-    background-size: cover;
+    @apply after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/50 after:opacity-90;
+    background: #431407 url('/cover.webp') no-repeat center center / cover;
+    image-rendering: pixelated;
   }
   .intro-title {
     @apply text-7xl text-center md:text-9xl flex flex-col;

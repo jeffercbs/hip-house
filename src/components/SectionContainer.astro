@@ -1,7 +1,7 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-export type Props = HTMLAttributes<"section"> & {
+export type Props = HTMLAttributes<'section'> & {
   title?: string;
   tag?: string;
 };
@@ -10,12 +10,12 @@ const { class: classes, title, tag, ...resProps } = Astro.props;
 ---
 
 <section class="min-h-dvh h-fit py-12 relative z-10" {...resProps}>
-  <div class:list={["hero size-full", classes]}>
+  <div class:list={['hero size-full', classes]}>
     {
       title && (
         <div class="pb-12 my-8 text-center">
           {tag && (
-            <span class="inline-flex text-primary underline decoration-wavy text-xl font-black uppercase">
+            <span class="inline-flex text-orange-950 underline decoration-wavy font-black uppercase">
               {tag}
             </span>
           )}

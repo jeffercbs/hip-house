@@ -1,5 +1,5 @@
 <button
-  class="mt-4 px-4 bg-white border-2 z-10 border-orange-950 shadow-lg w-full py-3 cursor-pointer text-black flex justify-center font-semibold gap-x-4 rounded-lg mb-8"
+  class="mt-4 px-4 bg-white border-2 z-10 border-orange-950 shadow-lg w-full py-3 cursor-pointer text-black flex justify-center gap-x-4 rounded-lg mb-8"
   id="signin"
 >
   <svg
@@ -27,12 +27,12 @@
 </button>
 
 <script>
-  import { signIn } from "auth-astro/client";
-  const button = document.getElementById("signin");
+  import { signIn } from 'auth-astro/client';
+  const button = document.getElementById('signin');
 
   if (button) {
-    button.addEventListener("click", async () => {
-      await signIn("google");
+    button.addEventListener('click', async () => {
+      await signIn('google');
     });
   }
 </script>

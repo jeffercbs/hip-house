@@ -1,5 +1,5 @@
 ---
-import site from "@/data/meta-site.json";
+import site from '@/data/meta-site.json';
 ---
 
 <header
@@ -10,7 +10,7 @@ import site from "@/data/meta-site.json";
       {
         site.HEADER_LINKS.map(({ NAME, URL, LABEL }) => (
           <li
-            class="hover:opacity-100 transition-opacity ease-in-out font-semibold opacity-70"
+            class="hover:opacity-100 transition-opacity ease-in-out font-medium opacity-70"
             id="nav-item"
           >
             <a
@@ -27,18 +27,22 @@ import site from "@/data/meta-site.json";
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("#nav-item a");
+  document.addEventListener('astro:page-load', () => {
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('#nav-item a');
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-orange-200", "opacity-100");
+            if (item.getAttribute('aria-label') == entry.target.id) {
+              item.classList.add('text-orange-100', 'underline', 'opacity-100');
             } else {
-              item.classList.remove("text-orange-200", "opacity-100");
+              item.classList.remove(
+                'text-orange-100',
+                'underline',
+                'opacity-100'
+              );
             }
           });
         }
@@ -47,7 +51,7 @@ import site from "@/data/meta-site.json";
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "0px",
+      rootMargin: '0px',
       threshold: 0.3,
     });
 
@@ -57,7 +61,7 @@ import site from "@/data/meta-site.json";
 
     // Cleanup function
     document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
+      if (document.visibilityState === 'hidden') {
         observer.disconnect();
       }
     };

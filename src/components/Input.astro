@@ -1,8 +1,8 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-import { getSession } from "auth-astro/server";
+import type { HTMLAttributes } from 'astro/types';
+import { getSession } from 'auth-astro/server';
 
-export type Props = HTMLAttributes<"input"> & {
+export type Props = HTMLAttributes<'input'> & {
   label: string;
 };
 
@@ -10,8 +10,8 @@ const { name, label, class: classes, ...resProps } = Astro.props;
 const session = await getSession(Astro.request);
 ---
 
-<label class:list={["my-2 w-full flex flex-col", classes]} for={name}>
-  <span class="text-sm font-semibold opacity-80 pb-1">
+<label class:list={['my-2 w-full flex flex-col', classes]} for={name}>
+  <span class="text-sm opacity-80 pb-1 mt-2">
     {label}
   </span>
   <input
@@ -20,8 +20,8 @@ const session = await getSession(Astro.request);
     id={name}
     readonly={session ? false : true}
     class:list={[
-      "outline-none bg-neutral-950 text-black border-none rounded-lg placeholder:opacity-60 read-only:ring-orange-900/30 ring-orange-900/30 bg-transparent px-4 py-2 ring-2 w-full",
-      { "focus:ring-orange-500": session },
+      'outline-none bg-neutral-950 border-none rounded-lg placeholder:opacity-60 read-only:ring-orange-900/30 ring-orange-900/30 bg-transparent px-4 py-2 ring-2 w-full',
+      { 'focus:ring-orange-500': session },
     ]}
   />
 </label>

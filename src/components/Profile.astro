@@ -18,10 +18,10 @@ const user = session?.user;
     />
 
     <div class="flex flex-1 flex-col">
-      <h3 class="font-bold leading-3 line-clamp-1 w-full">
+      <h3 class="leading-3 font-medium line-clamp-1 w-full">
         {user?.name}
       </h3>
-      <p class="text-gray-500 text-sm">{user?.email}</p>
+      <p class="text-gray-500 text-sm font-light">{user?.email}</p>
     </div>
   </div>
   <SignOut />

@@ -1,7 +1,7 @@
 ---
-import gallery from "@/data/meta-gallery.json";
-import "photoswipe/style.css";
-import SectionContainer from "./SectionContainer.astro";
+import gallery from '@/data/meta-gallery.json';
+import 'photoswipe/style.css';
+import SectionContainer from './SectionContainer.astro';
 ---
 
 <SectionContainer id="gallery" title="Explorar nuestras images" tag="galeria">
@@ -20,6 +20,8 @@ import SectionContainer from "./SectionContainer.astro";
           <img
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             class="size-full object-cover rounded-lg border-2 border-orange-950"
             decoding="async"
             loading="lazy"
@@ -31,14 +33,14 @@ import SectionContainer from "./SectionContainer.astro";
 </SectionContainer>
 
 <script>
-  import PhotoSwipeLightbox from "photoswipe/lightbox";
-  import "@appnest/masonry-layout";
-  import PhotoSwipe from "photoswipe";
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import '@appnest/masonry-layout';
+  import PhotoSwipe from 'photoswipe';
 
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener('astro:page-load', () => {
     const lightbox = new PhotoSwipeLightbox({
-      gallery: "#gallery",
-      children: "a",
+      gallery: '#gallery',
+      children: 'a',
       pswpModule: PhotoSwipe,
     });
 

@@ -34,10 +34,11 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                 <tr class="border-b hover:bg-white/20" id="reserve">
                   <td class="px-2 py-4">
                     <span class="flex flex-col">
-                      <span class="font-semibold">{visitor_name}</span>
+                      <span class="underline">{visitor_name}</span>
                       <time
                         datetime={reserve_date}
                         set:text={reserve_date}
+                        class="opacity-70 text-sm"
                         id="date"
                       />
                     </span>
@@ -48,7 +49,10 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                       {visitor_email}
                     </span>
                     <span>
-                      CC: <strong id="dni">{visitor_dni}</strong>
+                      CC:{' '}
+                      <span class="underline" id="dni">
+                        {visitor_dni}
+                      </span>
                     </span>
                   </th>
 
@@ -56,13 +60,13 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                     <span
                       id="status"
                       class:list={[
-                        'text-sm font-medium me-2 px-2.5 py-0.5 rounded-full',
+                        'text-sm font-medium me-2 px-2.5 py-0.5 rounded-full border-2',
                         {
-                          'bg-green-100 text-green-800':
+                          'bg-green-100 text-green-800 border-green-500':
                             reserve_status == 'ACTIVE',
                         },
                         {
-                          'bg-red-100 text-red-800':
+                          'bg-red-100 text-red-800 border-red-500':
                             reserve_status == 'CANCELLED',
                         },
                       ]}
