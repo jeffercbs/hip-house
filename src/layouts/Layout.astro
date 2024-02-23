@@ -3,9 +3,7 @@ import '@fontsource/poppins/800.css';
 import { ViewTransitions } from 'astro:transitions';
 
 import BaseHead from '@/components/BaseHead.astro';
-import '@fontsource/poppins/200.css';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/600.css';
+import '@fontsource/poppins';
 
 interface Props {
   title: string;
@@ -32,10 +30,6 @@ interface Props {
       ::-webkit-scrollbar {
         width: 8px;
       }
-
-      ::-webkit-scrollbar-thumb {
-        height: 80px;
-      }
       ::-webkit-scrollbar-track {
         background: transparent;
         backdrop-filter: blur(10px);
@@ -54,7 +48,7 @@ interface Props {
       }
       body,
       html {
-        font-family: 'Poppins' sans-serif;
+        font-family: 'Poppins', system-ui, sans-serif;
       }
       .hero {
         @apply lg:max-w-5xl w-full mx-auto md:px-0 px-4;

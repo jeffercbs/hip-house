@@ -13,22 +13,26 @@ if (session) return Astro.redirect('/dashboard');
     class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#ff964c_100%)]"
   >
   </div>
-  <header class="w-full py-2 absolute inset-x-0 top-0 h-16 z-20 text-white">
-    <nav class="hero flex items-center md:justify-start justify-center">
-      <a href="/" class="font-bold flex md:flex-row flex-col items-center">
-        <img src="/logo.png" width="60" height="60" alt="logo" />
-        <span class="text-xl uppercase md:ml-4"> Hip House</span>
-      </a>
-    </nav>
-  </header>
-  <main class="min-h-dvh grid place-content-center relative z-10 text-white">
-    <div class="md:max-w-md px-5 py-12 text-center">
-      <h1 class="text-5xl font-black pb-4">Iniciar Sesión</h1>
-      <p class="pb-6 text-lg opacity-70">
-        Si eres un administrador inicia sesión con tu cuenta de Google para
-        acceder a tu panel de control.
-      </p>
-      <GoogleSignIn />
+
+  <main class="min-h-dvh grid md:grid-cols-2 grid-cols-1 relative z-10">
+    <div class="bg-[url('/cover.webp')] bg-center bg-cover bg-no-repeat"></div>
+    <div class="grid place-content-center text-white">
+      <header class="w-full">
+        <nav class="flex flex-col items-center justify-center">
+          <a href="/">
+            <img src="/logo.png" width="60" height="60" alt="logo" />
+          </a>
+          <span class="text-xl font-bold uppercase md:ml-4"> Hip House</span>
+        </nav>
+      </header>
+      <div class="md:max-w-md px-5 py-12 text-center">
+        <h1 class="text-5xl font-semibold mb-8">Iniciar Sesión</h1>
+        <p class="pb-6 text-lg opacity-70">
+          Si eres un administrador inicia sesión con tu cuenta de Google para
+          acceder a tu panel de control.
+        </p>
+        <GoogleSignIn />
+      </div>
     </div>
   </main>
 </Layout>
