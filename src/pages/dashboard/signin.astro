@@ -1,11 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import GoogleSignIn from '../../components/GoogleSignin.astro';
-import { getSession } from 'auth-astro/server';
+import Layout from "../../layouts/Layout.astro";
+import GoogleSignIn from "../../components/GoogleSignin.astro";
+import { getSession } from "auth-astro/server";
 
 const session = await getSession(Astro.request);
 
-if (session) return Astro.redirect('/dashboard');
+if (session) return Astro.redirect("/dashboard");
 ---
 
 <Layout title="SignIn" robots="noindex, nofollow" googlebot="noindex, nofollow">
