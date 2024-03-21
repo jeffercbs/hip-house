@@ -33,7 +33,7 @@
         errorMessage = null;
 
         window.location.reload();
-      }, 1000);
+      }, 3000);
     }
   }
 </script>

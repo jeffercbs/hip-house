@@ -27,12 +27,12 @@
 </button>
 
 <script>
-  import { signIn } from 'auth-astro/client';
-  const button = document.getElementById('signin');
+  const { signIn } = await import("auth-astro/client");
+  const button = document.getElementById("signin");
 
   if (button) {
-    button.addEventListener('click', async () => {
-      await signIn('google');
+    button.addEventListener("click", async () => {
+      await signIn("google");
     });
   }
 </script>

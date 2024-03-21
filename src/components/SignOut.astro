@@ -10,7 +10,7 @@ const { class: classes, notStyle = false } = Astro.props;
 <button
   class:list={[
     {
-      'rounded-full p-2 shadow-2xl border-2 border-orange-900 bg-white text-red-70':
+      "rounded-full p-2 shadow-2xl border-2 border-orange-900 bg-white text-red-70":
         !notStyle,
     },
     classes,
@@ -38,11 +38,11 @@ const { class: classes, notStyle = false } = Astro.props;
 </button>
 
 <script>
-  import { signOut } from 'auth-astro/client';
-  const signout = document.getElementById('signout');
+  const { signOut } = await import("auth-astro/client");
+  const signout = document.getElementById("signout");
 
   if (signout) {
-    signout.addEventListener('click', () => {
+    signout.addEventListener("click", () => {
       signOut();
     });
   }
