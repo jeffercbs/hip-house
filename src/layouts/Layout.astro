@@ -1,9 +1,9 @@
 ---
-import '@fontsource/poppins/800.css';
-import { ViewTransitions } from 'astro:transitions';
+import "@fontsource/poppins/800.css";
+import { ViewTransitions } from "astro:transitions";
 
-import BaseHead from '@/components/BaseHead.astro';
-import '@fontsource/poppins';
+import BaseHead from "@/components/BaseHead.astro";
+import "@fontsource/poppins";
 
 interface Props {
   title: string;
@@ -22,24 +22,12 @@ interface Props {
     <slot />
     <style is:global>
       @font-face {
-        font-family: 'PoetsenOne';
+        font-family: "PoetsenOne";
         src:
-          url('/fonts/PoetsenOne.woff2') format('woff2'),
-          url('/fonts/PoetsenOne.woff') format('woff');
+          url("/fonts/PoetsenOne.woff2") format("woff2"),
+          url("/fonts/PoetsenOne.woff") format("woff");
       }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-        backdrop-filter: blur(10px);
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb {
-        backdrop-filter: blur(10px);
-        border-radius: 5px;
-        @apply bg-orange-950;
-      }
+
       *,
       body,
       html {
@@ -48,7 +36,7 @@ interface Props {
       }
       body,
       html {
-        font-family: 'Poppins', system-ui, sans-serif;
+        font-family: "Poppins", system-ui, sans-serif;
       }
       .hero {
         @apply lg:max-w-5xl w-full mx-auto md:px-0 px-4;

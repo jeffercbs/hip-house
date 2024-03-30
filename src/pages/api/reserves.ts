@@ -1,5 +1,6 @@
 import { createReserve, deleteReserve, findReserve } from '@/db/reserve';
 import { reserveSchema } from '@/schemas/reserve';
+import type { User } from '@/user';
 import { sendEmail } from '@/utils/send_email';
 import { format } from '@formkit/tempo';
 import type { APIRoute } from 'astro';
@@ -82,7 +83,7 @@ export const DELETE: APIRoute = async ({ request }) => {
   }
 
   try {
-    if (session.user.role === 'admin') {
+    if ((session.user as User).role === 'admin') {
       const url = new URL(request.url);
       const id = url.searchParams.get('id');
 
