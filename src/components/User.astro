@@ -1,5 +1,5 @@
 ---
-import SignOut from './SignOut.astro';
+import SignOut from "./SignOut.astro";
 
 const { props } = Astro;
 ---
@@ -12,11 +12,11 @@ const { props } = Astro;
     width="80"
     height="80"
     alt={props.user.name}
-    class="rounded-full"
+    class="rounded-full object-cover ring-2 ring-inset ring-offset-2"
   />
   <div class="flex-1 flex flex-col justify-center ml-3">
     <h2 class="text-lg underline leading-5">{props.user.name}</h2>
-    <span class="opacity-50">{props.user.email}</span>
+    <span class="opacity-50 text-sm">{props.user.email}</span>
   </div>
   <SignOut class="absolute md:-right-4 -right-2 -top-5" />
 </div>

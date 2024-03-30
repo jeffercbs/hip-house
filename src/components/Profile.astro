@@ -1,27 +1,29 @@
 ---
-import { getSession } from 'auth-astro/server';
-import SignOut from './SignOut.astro';
+import { getSession } from "auth-astro/server";
+import SignOut from "./SignOut.astro";
 
 const session = await getSession(Astro.request);
 const user = session?.user;
 ---
 
-<div class="flex justify-center items-center gap-2">
-  <div class="flex gap-3 relative items-center max-w-60 h-fit py-1">
+<div
+  class="flex justify-center items-center border border-orange-900 px-4 py-1 rounded-md"
+>
+  <div class="flex gap-3 relative items-center max-w-52 h-fit py-1">
     <img
-      src={user?.image || '/logo.png'}
-      width="50"
-      height="50"
-      class="rounded-full ring-4 ring-stone-100 w-12"
+      src={user?.image || "/logo.png"}
+      width="40"
+      height="40"
+      class="rounded-full ring-2 ring-orange-600 ring-offset-2 size-10"
       loading="lazy"
       alt={`Profile picture of ${user?.name}`}
     />
 
-    <div class="flex flex-1 flex-col">
-      <h3 class="leading-3 font-medium line-clamp-1 w-full">
+    <div class="flex flex-1 flex-col w-fit">
+      <h3 class="leading-3 font-medium line-clamp-1">
         {user?.name}
       </h3>
-      <p class="text-gray-500 text-sm font-light">{user?.email}</p>
+      <span class="text-xs opacity-60 font-light">{user?.email}</span>
     </div>
   </div>
   <SignOut />

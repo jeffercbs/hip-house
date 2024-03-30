@@ -1,11 +1,10 @@
 ---
-import { getSession } from 'auth-astro/server';
-import Form from './Form.svelte';
-import GoogleSignin from './GoogleSignin.astro';
-import Input from './Input.astro';
-import List from './List.astro';
-import SectionContainer from './SectionContainer.astro';
-import User from './User.astro';
+import { getSession } from "auth-astro/server";
+import FormContainer from "./FormContainer.astro";
+import GoogleSignin from "./GoogleSignin.astro";
+import List from "./List.astro";
+import SectionContainer from "./SectionContainer.astro";
+import User from "./User.astro";
 
 const session = await getSession(Astro.request);
 ---
@@ -23,8 +22,8 @@ const session = await getSession(Astro.request);
           <>
             <List
               items={[
-                'Llena el formulario con tus datos para hacer tu reserva.',
-                'Los siguientes datos se usarán para confirmar tu reservación.',
+                "Llena el formulario con tus datos para hacer tu reserva.",
+                "Los siguientes datos se usarán para confirmar tu reservación.",
               ]}
             />
             <User {...session} />
@@ -33,8 +32,8 @@ const session = await getSession(Astro.request);
           <>
             <List
               items={[
-                'Inicia sesión con tu cuenta de Google para hacer tu reserva.',
-                'Necesitamos que inicies sesión para validar que eres una persona real.',
+                "Inicia sesión con tu cuenta de Google para hacer tu reserva.",
+                "Necesitamos que inicies sesión para validar que eres una persona real.",
               ]}
             />
             <GoogleSignin />
@@ -43,67 +42,13 @@ const session = await getSession(Astro.request);
       }
       <List
         items={[
-          'Días de atención: Martes a sábado. Horario de 9:00 a 18:00 horas.',
-          'Para reservar, elige una fecha y hora dentro de nuestro horario y completa el formulario en nuestro sitio web o contactenos por medio de nuestras redes sociales.',
+          "Días de atención: Martes a sábado. Horario de 9:00 a 18:00 horas.",
+          "Para reservar, elige una fecha y hora dentro de nuestro horario y completa el formulario en nuestro sitio web o contactenos por medio de nuestras redes sociales.",
         ]}
       />
     </div>
     <div class="flex-1 py-4 md:mt-0 mt-8">
-      <Form
-        session={session}
-        classes="border-orange-950 shadow-2xl shadow-orange-800/40"
-        client:load
-      >
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-x-4 mb-6">
-          <Input
-            type="text"
-            name="visitor_name"
-            value={session?.user?.name || ''}
-            placeholder="pedro sanchez"
-            required
-            label="Responsable"
-            class="md:col-span-2"
-          />
-          <Input
-            type="number"
-            name="visitor_dni"
-            placeholder="111111111"
-            required
-            label="Documento de identidad"
-            class="md:col-span-2"
-          />
-          <Input
-            type="email"
-            value={session?.user?.email || ''}
-            name="visitor_email"
-            placeholder="hola@gmail.com"
-            required
-            label="Email"
-          />
-          <Input
-            type="text"
-            name="visitor_phone"
-            placeholder="+5733232323"
-            required
-            label="Teléfono"
-          />
-          <Input
-            type="date"
-            min="01/01/2024"
-            name="reserve_date"
-            required
-            label="Fecha"
-          />
-          <Input
-            type="time"
-            name="reserve_time"
-            min="09:00"
-            max="18:00"
-            required
-            label="Hora"
-          />
-        </div>
-      </Form>
+      <FormContainer />
     </div>
   </div>
 </SectionContainer>

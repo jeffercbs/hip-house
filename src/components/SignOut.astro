@@ -42,8 +42,6 @@ const { class: classes, notStyle = false } = Astro.props;
   const signout = document.getElementById("signout");
 
   if (signout) {
-    signout.addEventListener("click", () => {
-      signOut();
-    });
+    signout.onclick = () => signOut();
   }
 </script>

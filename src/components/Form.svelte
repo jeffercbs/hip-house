@@ -70,7 +70,7 @@
 
 <style>
   .form {
-    @apply py-12 border-2 rounded-lg;
+    @apply py-12 border border-orange-900 rounded-lg;
   }
   .btn-submit {
     @apply w-full py-3 rounded-lg transition-colors ease-in-out border-2 border-primary bg-orange-200 text-primary mt-4;
