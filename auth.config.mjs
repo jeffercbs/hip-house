@@ -1,12 +1,10 @@
 import { createUser, findUser } from "@/db/user";
 import { userShema } from "@/schemas/user";
 import GoogleProvider from "@auth/core/providers/google";
-import type { TokenSet } from "@auth/core/types";
 import { defineConfig } from "auth-astro";
 import { v4 as uuid } from "uuid";
 
 export default defineConfig({
-  secret: import.meta.env.AUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: import.meta.env.GOOGLE_CLIENT_ID,
@@ -14,11 +12,13 @@ export default defineConfig({
     }),
   ],
   callbacks: {
-    async session({ session }) {
+    async session({ session, token}) {
       const user = await findUser(session?.user?.email || "");
-      session.user.role = user.user_role?.toString() as any;
-      session.user.id = user.user_id?.toString() as any;
+      session.user.role = user.user_role?.toString();
+      session.user.id = user.user_id?.toString();
 
+      session.token = token.sub
+  
       return session;
     },
 
@@ -44,15 +44,3 @@ export default defineConfig({
     },
   },
 });
-
-declare module "@auth/core/types" {
-  interface Session {
-    user: {
-      name?: string;
-      email?: string;
-      image?: string;
-      role?: string;
-      id?: string;
-    };
-  }
-}
