@@ -1,7 +1,7 @@
 import { z } from 'astro:content';
 
 export const reserveSchema = z.object({
-  reserve_id: z.string(),
+  reserve_id: z.string().optional(),
   reserve_date: z.string(),
   reserve_time: z.string(),
   visitor_name: z.string(),
