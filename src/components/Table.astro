@@ -1,10 +1,9 @@
 ---
-import type { z } from 'astro:content';
-import { findAllReserves } from '../db/reserve';
-import { reserveSchema } from '../schemas/reserve';
-import Trash from './Trash.svelte';
+import { Reserve, db } from "astro:db";
+import Trash from "./Trash.svelte";
+import { format } from "@formkit/tempo";
 
-const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
+const reserves = await db.select().from(Reserve);
 ---
 
 <div class="relative overflow-x-auto">
@@ -26,6 +25,7 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
               ({
                 reserve_id,
                 reserve_date,
+                reserve_time,
                 visitor_dni,
                 visitor_name,
                 visitor_email,
@@ -36,8 +36,11 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                     <span class="flex flex-col">
                       <span class="underline">{visitor_name}</span>
                       <time
-                        datetime={reserve_date}
-                        set:text={reserve_date}
+                        datetime={format(reserve_date, "yyyy-MM-dd")}
+                        set:text={format(`${reserve_date}T${reserve_time}`, {
+                          date: "full",
+                          time: "short",
+                        })}
                         class="opacity-70 text-sm"
                         id="date"
                       />
@@ -49,7 +52,7 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                       {visitor_email}
                     </span>
                     <span>
-                      CC:{' '}
+                      CC:{" "}
                       <span class="underline" id="dni">
                         {visitor_dni}
                       </span>
@@ -60,14 +63,14 @@ const reserves: z.infer<typeof reserveSchema>[] = await findAllReserves(0);
                     <span
                       id="status"
                       class:list={[
-                        'text-sm font-medium me-2 px-2.5 py-0.5 rounded-full border-2',
+                        "text-sm font-medium me-2 px-2.5 py-0.5 rounded-full border-2",
                         {
-                          'bg-green-100 text-green-800 border-green-500':
-                            reserve_status == 'ACTIVE',
+                          "bg-green-100 text-green-800 border-green-500":
+                            reserve_status == "ACTIVE",
                         },
                         {
-                          'bg-red-100 text-red-800 border-red-500':
-                            reserve_status == 'CANCELLED',
+                          "bg-red-100 text-red-800 border-red-500":
+                            reserve_status == "CANCELLED",
                         },
                       ]}
                       class=" text-xs status"
