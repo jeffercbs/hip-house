@@ -1,9 +1,11 @@
 import { reserveSchema } from "@/schemas/reserve";
+import type { userShema } from "@/schemas/user";
 import { sendEmail } from "@/utils/send_email";
 import type { APIRoute } from "astro";
 import { Reserve, db, eq } from "astro:db";
 import { getSession } from "auth-astro/server";
 import { createHash } from "node:crypto";
+
 
 export const POST: APIRoute = async ({ request }) => {
   const session = await getSession(request);
@@ -89,7 +91,7 @@ export const DELETE: APIRoute = async ({ request }) => {
   }
 
   try {
-    if (session.user.role === "admin") {
+    if (session.user && session.user.role === "admin") {
       const url = new URL(request.url);
       const id = url.searchParams.get("id");
 

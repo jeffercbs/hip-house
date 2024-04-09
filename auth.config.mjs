@@ -16,7 +16,7 @@ export default defineConfig({
       session.user.role = user[0].user_role;
       session.user.id = user[0].user_id;
       session.token = token.sub;
-
+      
       return session;
     },
 
