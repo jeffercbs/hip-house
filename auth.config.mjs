@@ -1,8 +1,8 @@
-import { createUser, findUser } from "@/db/user";
-import { userShema } from "@/schemas/user";
+import { findUser } from "@/db/user";
 import GoogleProvider from "@auth/core/providers/google";
+import { User, db, eq } from "astro:db";
 import { defineConfig } from "auth-astro";
-import { v4 as uuid } from "uuid";
+import { createHash } from "node:crypto";
 
 export default defineConfig({
   providers: [
@@ -12,29 +12,30 @@ export default defineConfig({
     }),
   ],
   callbacks: {
-    async session({ session, token}) {
-      const user = await findUser(session?.user?.email || "");
-      session.user.role = user.user_role?.toString();
-      session.user.id = user.user_id?.toString();
+    async session({ session, token }) {
+      const user = await findUser(session.user.email || "");
+      session.user.role = user.user_role;
+      session.user.id = user.user_id;
 
-      session.token = token.sub
-  
+      session.token = token.sub;
+
       return session;
     },
 
-    async signIn({ profile }) {
+    async signIn({ user }) {
       try {
-        let user = await findUser(profile?.email || "");
+        let found = await db
+          .select()
+          .from(User)
+          .where(eq(User.user_email, user.email));
 
-        if (!user) {
-          const new_user = userShema.parse({
-            user_id: uuid(),
-            user_email: profile?.email || "",
-            user_name: profile?.name || "",
-            user_picture: profile?.picture || "",
+        if (found.length === 0) {
+          await db.insert(User).values({
+            user_id: createHash("sha256").update(user.email).digest("hex"),
+            user_email: user.email,
+            user_name: user.name,
+            user_picture: user.image,
           });
-
-          await createUser(new_user);
           return true;
         }
         return true;
