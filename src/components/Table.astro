@@ -1,7 +1,6 @@
 ---
 import { Reserve, db } from "astro:db";
 import Trash from "./Trash.svelte";
-import { format } from "@formkit/tempo";
 
 const reserves = await db.select().from(Reserve);
 ---
@@ -33,21 +32,20 @@ const reserves = await db.select().from(Reserve);
               }) => (
                 <tr class="border-b hover:bg-white/20" id="reserve">
                   <td class="px-2 py-4">
-                    <span class="flex flex-col">
-                      <span class="underline">{visitor_name}</span>
-                      <time
-                        datetime={format(reserve_date, "yyyy-MM-dd")}
-                        set:text={format(`${reserve_date}T${reserve_time}`, {
-                          date: "full",
-                          time: "short",
-                        })}
-                        class="opacity-70 text-sm"
-                        id="date"
-                      />
-                    </span>
+                    <div class="flex flex-col">
+                      <span>
+                        {new Intl.DateTimeFormat("es-ES", {
+                          dateStyle: "full",
+                        }).format(reserve_date)}
+                      </span>
+                      <span>
+                        <strong>Hora:</strong> <span>{reserve_time}</span>
+                      </span>
+                    </div>
                   </td>
 
                   <th scope="row" class="flex flex-col px-6 py-4 font-normal">
+                    <span class="underline">{visitor_name}</span>
                     <span class="opacity-80" id="name">
                       {visitor_email}
                     </span>

@@ -7,7 +7,7 @@ const user = session?.user;
 ---
 
 <div
-  class="flex justify-center items-center border border-orange-900 px-4 py-1 rounded-md"
+  class="flex justify-center items-center px-4 py-1 rounded-md"
 >
   <div class="flex gap-3 relative items-center max-w-52 h-fit py-1">
     <img
@@ -23,7 +23,7 @@ const user = session?.user;
       <h3 class="leading-3 font-medium line-clamp-1">
         {user?.name}
       </h3>
-      <span class="text-xs opacity-60 font-light">{user?.email}</span>
+      <span class="text-xs opacity-60 font-light truncate max-w-36">{user?.email}</span>
     </div>
   </div>
   <SignOut />
