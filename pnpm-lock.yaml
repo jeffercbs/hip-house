@@ -9,14 +9,14 @@ dependencies:
     specifier: ^2.2.3
     version: 2.2.3
   '@astrojs/db':
-    specifier: ^0.10.1
-    version: 0.10.1(react@18.2.0)
+    specifier: ^0.10.2
+    version: 0.10.2(react@18.2.0)
   '@auth/core':
     specifier: ^0.18.6
     version: 0.18.6
   astro:
     specifier: ^4.5.12
-    version: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
+    version: 4.5.12(lightningcss@1.24.1)(typescript@5.4.4)
   auth-astro:
     specifier: ^4.1.1
     version: 4.1.1(@auth/core@0.18.6)(astro@4.5.12)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)
@@ -33,19 +33,19 @@ dependencies:
 devDependencies:
   '@astrojs/check':
     specifier: ^0.5.10
-    version: 0.5.10(typescript@5.4.3)
+    version: 0.5.10(typescript@5.4.4)
   '@astrojs/svelte':
-    specifier: ^5.2.0
-    version: 5.2.0(astro@4.5.12)(svelte@4.2.12)(typescript@5.4.3)(vite@5.1.6)
+    specifier: ^5.3.0
+    version: 5.3.0(astro@4.5.12)(svelte@4.2.12)(typescript@5.4.4)(vite@5.1.6)
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.12)(tailwindcss@3.4.3)
   '@astrojs/vercel':
-    specifier: ^7.5.0
-    version: 7.5.0(astro@4.5.12)(next@14.1.3)(react@18.2.0)
+    specifier: ^7.5.2
+    version: 7.5.2(astro@4.5.12)(next@14.1.3)(react@18.2.0)
   '@fontsource/poppins':
-    specifier: ^5.0.12
-    version: 5.0.12
+    specifier: ^5.0.13
+    version: 5.0.13
   lightningcss:
     specifier: ^1.24.1
     version: 1.24.1
@@ -56,8 +56,8 @@ devDependencies:
     specifier: ^1.0.1
     version: 1.0.1(tailwindcss@3.4.3)
   typescript:
-    specifier: ^5.4.3
-    version: 5.4.3
+    specifier: ^5.4.4
+    version: 5.4.4
 
 packages:
 
@@ -77,17 +77,17 @@ packages:
     resolution: {integrity: sha512-q4q48iygVyaFaaogu5xeYNHR5jj4yZMB4zC1JmfOggz7DPCp/QIJGbnLctf3y2maNtGz4PiLXrQRQlmx5hO57A==}
     dev: false
 
-  /@astrojs/check@0.5.10(typescript@5.4.3):
+  /@astrojs/check@0.5.10(typescript@5.4.4):
     resolution: {integrity: sha512-vliHXM9cu/viGeKiksUM4mXfO816ohWtawTl2ADPgTsd4nUMjFiyAl7xFZhF34yy4hq4qf7jvK1F2PlR3b5I5w==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
-      '@astrojs/language-server': 2.8.4(typescript@5.4.3)
+      '@astrojs/language-server': 2.8.4(typescript@5.4.4)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.4.3
+      typescript: 5.4.4
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -97,8 +97,8 @@ packages:
   /@astrojs/compiler@2.7.0:
     resolution: {integrity: sha512-XpC8MAaWjD1ff6/IfkRq/5k1EFj6zhCNqXRd5J43SVJEBj/Bsmizkm8N0xOYscGcDFQkRgEw6/eKnI5x/1l6aA==}
 
-  /@astrojs/db@0.10.1(react@18.2.0):
-    resolution: {integrity: sha512-nNbatQVereDW4VopFXUS2hJ2fatRLzxJZ03XaafbI81RG0JVOkisJCjyOYXExuka9RXavZVkAQug5BpHhZzYLQ==}
+  /@astrojs/db@0.10.2(react@18.2.0):
+    resolution: {integrity: sha512-822+vkEKaruLuc1leCOW8/5/UjhmgR2/0MSEgf3gSrf1k20mWyXw8+4maR6ER6ZLBxczcjvxpQl3Q6Z50BakLA==}
     dependencies:
       '@libsql/client': 0.5.6
       async-listen: 3.0.1
@@ -146,7 +146,7 @@ packages:
   /@astrojs/internal-helpers@0.4.0:
     resolution: {integrity: sha512-6B13lz5n6BrbTqCTwhXjJXuR1sqiX/H6rTxzlXx+lN1NnV4jgnq/KJldCQaUWJzPL5SiWahQyinxAbxQtwgPHA==}
 
-  /@astrojs/language-server@2.8.4(typescript@5.4.3):
+  /@astrojs/language-server@2.8.4(typescript@5.4.4):
     resolution: {integrity: sha512-sJH5vGTBkhgA8+hdhzX78UUp4cFz4Mt7xkEkevD188OS5bDMkaue6hK+dtXWM47mnrXFveXA2u38K7S+5+IRjA==}
     hasBin: true
     peerDependencies:
@@ -160,7 +160,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 2.7.0
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 2.1.6(typescript@5.4.3)
+      '@volar/kit': 2.1.6(typescript@5.4.4)
       '@volar/language-core': 2.1.6
       '@volar/language-server': 2.1.6
       '@volar/language-service': 2.1.6
@@ -208,19 +208,19 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/svelte@5.2.0(astro@4.5.12)(svelte@4.2.12)(typescript@5.4.3)(vite@5.1.6):
-    resolution: {integrity: sha512-GmwbXks2WMkmAfl0rlPM/2gA1RtmZzjGV2mOceV3g7QNyjIsSYBPKrlEnSFnuR+YMvlAtWdbMFBsb3gtGxnTTg==}
+  /@astrojs/svelte@5.3.0(astro@4.5.12)(svelte@4.2.12)(typescript@5.4.4)(vite@5.1.6):
+    resolution: {integrity: sha512-7jKT6uQo6V4XNS4DmlZTlliO4qn9dOTsbRB3PyIzAnbTNqJnDBPY6Hj0X5uhELXSmKkn/o+ncJ46kLtFLqEq8w==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: ^4.0.0
-      svelte: ^4.0.0 || ^5.0.0-next.56
+      svelte: ^4.0.0 || ^5.0.0-next.90
       typescript: ^5.3.3
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.0.2(svelte@4.2.12)(vite@5.1.6)
-      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
+      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.4)
       svelte: 4.2.12
-      svelte2tsx: 0.6.27(svelte@4.2.12)(typescript@5.4.3)
-      typescript: 5.4.3
+      svelte2tsx: 0.6.27(svelte@4.2.12)(typescript@5.4.4)
+      typescript: 5.4.4
     transitivePeerDependencies:
       - supports-color
       - vite
@@ -232,7 +232,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
+      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.4)
       autoprefixer: 10.4.18(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -255,8 +255,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/vercel@7.5.0(astro@4.5.12)(next@14.1.3)(react@18.2.0):
-    resolution: {integrity: sha512-RYFZNHkfNgFNb41nblG26ubw5924hAjLYs+Bpp4kttcsYJAX/wavIfDbfZQ/XesDTKwIH+Gi/+3c5bldZePFDA==}
+  /@astrojs/vercel@7.5.2(astro@4.5.12)(next@14.1.3)(react@18.2.0):
+    resolution: {integrity: sha512-Wvz5wCvmc1iu22KcVEpEAXsyzAWrVIkcXOReqd6QAUTJ5Kj1oYsZdZqJuibjbM6hDfnhTF78W64XXUKH+Wb0cg==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
@@ -264,7 +264,7 @@ packages:
       '@vercel/analytics': 1.2.2(next@14.1.3)(react@18.2.0)
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.4
-      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
+      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.4)
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -751,8 +751,8 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@fontsource/poppins@5.0.12:
-    resolution: {integrity: sha512-0qzBxtIJLh82iMJ9pCXKYwGs1zyS+jyUmwVJ59+JdYnEaFVkDsxVOk9yDWfVOs14ALUneodU2m5YSGma6dCYCw==}
+  /@fontsource/poppins@5.0.13:
+    resolution: {integrity: sha512-8G9odFoxH43oZpvq43fpGucm8iHm6iatu0M1LIshb+tx3/y6YBXenVED7CI4resvPz6hyDu8a2vHSh9vrpe+wQ==}
     dev: true
 
   /@isaacs/cliui@8.0.2:
@@ -1312,7 +1312,7 @@ packages:
       - supports-color
     dev: true
 
-  /@volar/kit@2.1.6(typescript@5.4.3):
+  /@volar/kit@2.1.6(typescript@5.4.4):
     resolution: {integrity: sha512-dSuXChDGM0nSG/0fxqlNfadjpAeeo1P1SJPBQ+pDf8H1XrqeJq5gIhxRTEbiS+dyNIG69ATq1CArkbCif+oxJw==}
     peerDependencies:
       typescript: '*'
@@ -1320,7 +1320,7 @@ packages:
       '@volar/language-service': 2.1.6
       '@volar/typescript': 2.1.6
       typesafe-path: 0.2.2
-      typescript: 5.4.3
+      typescript: 5.4.4
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: true
@@ -1497,7 +1497,7 @@ packages:
   /array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
 
-  /astro@4.5.12(lightningcss@1.24.1)(typescript@5.4.3):
+  /astro@4.5.12(lightningcss@1.24.1)(typescript@5.4.4):
     resolution: {integrity: sha512-xIJcFI2hbyV8+h5pWjL7SKD1jIP0K01fYVAH+gdAt0mJaXy+u8Mj+goD0cPlK6sEaykR+7zxQLYGKJ44U4qarg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1555,7 +1555,7 @@ packages:
       shiki: 1.1.7
       string-width: 7.1.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.3(typescript@5.4.3)
+      tsconfck: 3.0.3(typescript@5.4.4)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.1.6(lightningcss@1.24.1)
@@ -1598,7 +1598,7 @@ packages:
       astro: ^4.0.0
     dependencies:
       '@auth/core': 0.18.6
-      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
+      astro: 4.5.12(lightningcss@1.24.1)(typescript@5.4.4)
       next-auth: 4.24.7(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)
       set-cookie-parser: 2.6.0
     transitivePeerDependencies:
@@ -4632,7 +4632,7 @@ packages:
       svelte: 4.2.12
     dev: true
 
-  /svelte2tsx@0.6.27(svelte@4.2.12)(typescript@5.4.3):
+  /svelte2tsx@0.6.27(svelte@4.2.12)(typescript@5.4.4):
     resolution: {integrity: sha512-E1uPW1o6VsbRz+nUk3fznZ2lSmCITAJoNu8AYefWSvIwE2pSB01i5sId4RMbWNzfcwCQl1DcgGShCPcldl4rvg==}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
@@ -4641,7 +4641,7 @@ packages:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 4.2.12
-      typescript: 5.4.3
+      typescript: 5.4.4
     dev: true
 
   /svelte@4.2.12:
@@ -4792,7 +4792,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsconfck@3.0.3(typescript@5.4.3):
+  /tsconfck@3.0.3(typescript@5.4.4):
     resolution: {integrity: sha512-4t0noZX9t6GcPTfBAbIbbIU4pfpCwh0ueq3S4O/5qXI1VwK1outmxhe9dOiEWqMz3MW2LKgDTpqWV+37IWuVbA==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -4802,7 +4802,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.4.3
+      typescript: 5.4.4
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
@@ -4828,8 +4828,8 @@ packages:
       semver: 7.6.0
     dev: true
 
-  /typescript@5.4.3:
-    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
+  /typescript@5.4.4:
+    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
