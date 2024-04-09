@@ -1,10 +1,13 @@
 import { reserveSchema } from "@/schemas/reserve";
-import { sendEmail } from "@/utils/send_email";
+import { EmailTemplate } from "@/utils/send_email";
 import type { APIRoute } from "astro";
 import { Reserve, db, eq } from "astro:db";
 import { getSession } from "auth-astro/server";
 import { createHash } from "node:crypto";
 import type { User } from "@/user";
+import { Resend } from "resend";
+
+const resend = new Resend(import.meta.env.RESEND_SECRET);
 
 export const POST: APIRoute = async ({ request }) => {
   const session = await getSession(request);
@@ -47,11 +50,17 @@ export const POST: APIRoute = async ({ request }) => {
         visitor_dni,
         visitor_phone,
       });
-      await sendEmail({
-        visitor_email,
-        visitor_phone,
-        reserve_date,
-        visitor_name,
+      
+      await resend.emails.send({
+        from: "Acme <onboarding@resend.dev>",
+        to: visitor_email,
+        subject: "Reserva exitosa",
+        html: EmailTemplate(
+          visitor_name,
+          reserve_date,
+          visitor_phone,
+          visitor_email
+        ),
       });
 
       return new Response(
