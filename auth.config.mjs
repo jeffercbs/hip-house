@@ -1,4 +1,3 @@
-import { findUser } from "@/db/user";
 import GoogleProvider from "@auth/core/providers/google";
 import { User, db, eq } from "astro:db";
 import { defineConfig } from "auth-astro";
@@ -13,10 +12,9 @@ export default defineConfig({
   ],
   callbacks: {
     async session({ session, token }) {
-      const user = await findUser(session.user.email || "");
-      session.user.role = user.user_role;
-      session.user.id = user.user_id;
-
+      const user = await db.select().from(User).where(eq(User.user_email, session.user.email))
+      session.user.role = user[0].user_role;
+      session.user.id = user[0].user_id;
       session.token = token.sub;
 
       return session;
