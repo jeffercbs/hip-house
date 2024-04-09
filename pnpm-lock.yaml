@@ -14,9 +14,6 @@ dependencies:
   '@auth/core':
     specifier: ^0.18.6
     version: 0.18.6
-  '@formkit/tempo':
-    specifier: ^0.0.19
-    version: 0.0.19
   astro:
     specifier: ^4.5.12
     version: 4.5.12(lightningcss@1.24.1)(typescript@5.4.3)
@@ -757,10 +754,6 @@ packages:
   /@fontsource/poppins@5.0.12:
     resolution: {integrity: sha512-0qzBxtIJLh82iMJ9pCXKYwGs1zyS+jyUmwVJ59+JdYnEaFVkDsxVOk9yDWfVOs14ALUneodU2m5YSGma6dCYCw==}
     dev: true
-
-  /@formkit/tempo@0.0.19:
-    resolution: {integrity: sha512-f8Ek6aKVqhQj8keQ1Iy8J8M+soMUDnACf+acPjv8bvlPVVXIdt/7c1jwxk/fp9+VW04ccoG3NRILfdhpMnk20Q==}
-    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
